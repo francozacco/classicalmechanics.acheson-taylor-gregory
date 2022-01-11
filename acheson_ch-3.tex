@@ -1,0 +1,70 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{mathrsfs}
+
+\title{\textbf{Solved selected problems of From Calculus to Chaos - Acheson}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\begin{document}
+
+
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 3 - Ordinary differential equations}
+
+	\begin{proof}{\textbf{3.2}}
+		The equation presented can be classified as a nonlinear non-autonomous
+		differential equation, and the equation is of the form
+		$$\frac{dx}{dt}=g(x)h(t)$$
+		where $g(x)=x^{2}$ and $h(t)=\frac{1}{1+t}$ which can be rewritten to
+		the form
+		$$\frac{1}{g(x)}\frac{dx}{dt}=h(t)$$
+		as
+		$$\frac{1}{x^{2}}\frac{dx}{dt} = \frac{1}{1+t}$$
+		then integrating both sides with respect to $t$
+		$$\int \frac{1}{x^2}\frac{dx}{dt}dt = \int \frac{1}{1+t}dt$$
+		$$\int \frac{1}{x^2}dx = \int \frac{1}{1+t}dt$$
+		$$-\frac{1}{x} = log(1+t) +C$$
+		$$x = \frac{1}{C - log(1+t)}$$
+		Subject to $x = 1$ when $t = 0$ then $C=1$ so we have
+		$$x = \frac{1}{1 - log(1+t)}$$
+		therefore the "blow up" of the solution happens when $t$ approaches
+		$e-1$.
+	\end{proof}
+	\begin{proof}{\textbf{3.4}}
+		
+	\end{proof}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
