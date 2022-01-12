@@ -41,8 +41,48 @@
 		therefore the "blow up" of the solution happens when $t$ approaches
 		$e-1$.
 	\end{proof}
+\cleardoublepage
 	\begin{proof}{\textbf{3.4}}
-		
+		Since we know that $x = x_1u$ then
+		\begin{align*}
+			\dot{x} &= \dot{x_1}u + \dot{u}x_1 \\
+			\ddot{x} &= \ddot{x_1}u + 2\dot{x_1}\dot{u} + x_1\ddot{u}
+		\end{align*}
+		by replacing in $a\ddot{x} + b\dot{x} + cx = 0$ we have that:
+		\begin{align*}
+			a(\ddot{x_1}u + 2\dot{x_1}\dot{u} + x_1\ddot{u}) + b(\dot{x_1}u + \dot{u}x_1) + cx_1u = 0\\
+			u(a\ddot{x} + b\dot{x} + cx) + \dot{u}(2a\dot{x_1} + bx_1) + \ddot{u}ax_1 = 0
+		\end{align*}
+		since $a\ddot{x} + b\dot{x} + cx = 0$ then
+		\begin{align*}
+			\dot{u}(2a\dot{x_1} + bx_1) + \ddot{u}ax_1 = 0
+		\end{align*}
+		defining $z=\dot{u}$ then
+		\begin{align}
+			\dot{z}ax_1 + z(2a\dot{x_1} + bx_1) = 0
+		\end{align}
+		which is an equation of first-order for $z$.\\
+		Now this method is going to be used to solve $\ddot{x}-2\dot{x}+x=0$ 
+		since the solution we have is $x_1=e^{t}$ then $\dot{x_1}=e^{t}$ and
+		replacing in the equation (1) with the values $a=1$ and $b=-2$
+		we have that
+		\begin{align*}
+			\dot{z}e^{t} + z(2e^{t} -2e^{t}) = 0\\
+			\dot{z}e^{t} = 0\\
+			\dot{z} = 0
+		\end{align*}
+		then $z=B$ where $B$ is a constant, but $\dot{u}=z$ so $\dot{u}=B$ and 
+		then $u = Bt + A$. Since we are assuming that $x=ux_1$ then the general
+		solution is of the form
+		\begin{align*}
+			x &= (Bt+A)e^{t}
+		\end{align*}
+		then $\dot{x} = Be^{t} + (Bt+A)e^{t}$ and by applying the initial
+		conditions we obtain that $A=1$ and $0 = B + A$ and then $B = -1$.\\
+		Therefore the other solution is
+		\begin{align*}
+			x = (1-t)e^{t}
+		\end{align*}
 	\end{proof}
 \end{document}
 
