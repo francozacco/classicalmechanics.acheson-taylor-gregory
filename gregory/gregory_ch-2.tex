@@ -194,6 +194,80 @@
         which is a circle with center at $(0, \frac{a}{2})$ and radius
         $\frac{a}{2}$.
     \end{proof}
+    \begin{proof}{\textbf{2.11}}
+        We know that the velocity in a general form can be written as
+        $$\bm{v} = v \bm{t}$$
+        where $\bm{t}$ is the unit tangential vector, and the acceleration can
+        be written as
+        $$\bm{a} = \frac{dv}{dt}\bm{t} + \frac{v^2}{\rho}\bm{n}$$
+        where $\bm{n}$ is the unit normal vector, since $v$ is constant
+        then $\frac{dv}{dt}=0$ so the acceleration can be written as
+        $$\bm{a} = \frac{v^2}{\rho}\bm{n}$$
+        which only has the normal component, therefore the acceleration is
+        perpendicular to the velocity.
+    \end{proof}
+    \begin{proof}{\textbf{2.14}}
+        Knowing that
+        $$r = b \cosh(\Omega t)$$
+        then
+        $$\dot{r} = b \Omega\sinh(\Omega t)$$
+        $$\ddot{r} = b \Omega^2\cosh(\Omega t)$$
+        so from the polar velocity equation we have that
+        \begin{align*}
+            \bm{v} &= \dot{r}\hatr + r\dot{\theta}\hatth \\
+                   &= b \Omega\sinh(\Omega t) \hatr + b \Omega\cosh(\Omega t) \hatth \\
+                   &= b \Omega(\sinh(\Omega t) \hatr + \cosh(\Omega t) \hatth) 
+        \end{align*}
+        and the speed of the particle is then
+        \begin{align*}
+            |v|^2 &= b^2\Omega^2\sinh^2(\Omega t) + b^2 \Omega^2\cosh^2(\Omega t) \\
+                  &= b^2\Omega^2 \cosh(2 \Omega t)
+        \end{align*}
+        Finally, the acceleration is derived as follows
+        \begin{align*}
+            \bm{a} &= (\ddot{r} - r\dot{\theta}^2) \hatr + (r\ddot{\theta} + \ 
+                    2\dot{r}\dot{\theta}) \hatth \\
+                   &= [b \Omega^2\cosh(\Omega t) - b \Omega^2\cosh(\Omega t)] \hatr + \
+                    [0 + 2 b \Omega^2\sinh(\Omega t)] \hatth \\
+                   &= 2 b \Omega^2\sinh(\Omega t) \hatth
+        \end{align*}
+        Therefore the acceleration direction is circunferential and is
+            given by $\hatth$.
+    \end{proof}
+    \begin{proof}{\textbf{2.18}}
+        As the graph shows P is at $(b \sin(\Omega t), 0)$ from there and by
+        using Pythagoras theorem we can derive that Q is at
+        $(0, \sqrt{a^2 - b^2 \sin^2(\Omega t)})$ then C, the center
+        of the link, has coordinates given 
+        $(\frac{b}{2}\sin(\Omega t), \frac{\sqrt{a^2 - b^2 \sin^2(\Omega t)}}{2})$.
+        If we now move the origin $(0, 0)$ to C then the coordinates of P are
+        given by $(\frac{b}{2}\sin(\Omega t), -\frac{\sqrt{a^2 - b^2 \sin^2(\Omega t)}}{2})$
+        so we have that the sine of the angle between the link and the negative
+        Y-axis is given by  
+        $$\sin(\theta) = \frac{\frac{b}{2}\sin(\Omega t)}{\frac{a}{2}} \quad\text{ so }\quad
+        \theta = \sin^{-1}\left(\frac{b \sin{\Omega t}}{a}\right)$$
+        now derivating this expression with respect to $t$ we get the Angular 
+        velocity as
+        $$\dot{\theta} = \omega = \frac{b\Omega\cos(\Omega t)}{\sqrt{a^2 - b^2\sin^2(\Omega t)}}$$
+        Finally, since we know the coordinates for C we can calculate the
+        velocity as
+        \begin{align*}
+            \bm{v} = \frac{\Omega b}{2}\cos(\Omega t) \bm{i} - \ 
+            \frac{\Omega b^2 \sin(\Omega t) \cos(\Omega t)}{2\sqrt{a^2 - b^2 sin^2(\Omega t)}} \bm{j} 
+        \end{align*}        
+        so now we can calculate the speed for the link center by  
+        \begin{align*}
+            |v|^2 &= \frac{\Omega^2b^2}{4}\cos^2(\Omega t) + \
+            \frac{\Omega^2 b^4 \sin^2(\Omega t) \cos^2(\Omega t)}{4(a^2 - b^2 sin^2(\Omega t))} \\
+                  &= \frac{\Omega^2b^2}{4}\cos^2(\Omega t) \left(1 + \ 
+                  \frac{b^2 \sin^2(\Omega t)}{a^2 - b^2 sin^2(\Omega t)}\right) \\
+                  &= \frac{\Omega^2b^2}{4}\cos^2(\Omega t) \left( \ 
+                  \frac{a^2}{a^2 - b^2 sin^2(\Omega t)}\right) \\
+                  &= \frac{\Omega^2b^2a^2 \cos^2(\Omega t)}{4(a^2 - b^2 sin^2(\Omega t))}
+        \end{align*}
+        Finally
+        $$|v| = \frac{\Omega ba\cos(\Omega t)}{2\sqrt{a^2 - b^2 sin^2(\Omega t)}}$$
+    \end{proof}
 \end{document}
 
 
