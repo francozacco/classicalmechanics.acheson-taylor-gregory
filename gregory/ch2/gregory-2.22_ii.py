@@ -7,7 +7,9 @@ import math
 def main():
     plt.figure()
     ax = plt.axes()
-    xD, yD, xH, yH = runge_kutta(x0=1, y0=1, vd=0.99, vh=1)
+    vd, vh = 0.9, 1
+    ax.set_title(f'vd={vd}, vh={vh}')
+    xD, yD, xH, yH = runge_kutta(x0=-1, y0=0, vd=vd, vh=vh)
     plot(ax, xH, yH, "Hare trajectory")
     plot(ax, xD, yD, "Dog trajectory")
     ax.plot(xH[-1], yH[-1], marker="o", color="blue")
@@ -32,7 +34,6 @@ def runge_kutta(x0, y0, vd, vh, h=0.01, it=10000):
     t = 0
 
     for _ in range(it):
-        t = t + h
         c1 = h * fx(x[-1], y[-1], t, vd, vh)
         d1 = h * fy(x[-1], y[-1], t, vd, vh)
         c2 = h * fx(x[-1] + (h/2)*c1, y[-1] + (h/2)*d1, t, vd, vh)
@@ -49,6 +50,7 @@ def runge_kutta(x0, y0, vd, vh, h=0.01, it=10000):
 
         xD.append(xH[-1] + x[-1])
         yD.append(yH[-1] + y[-1])
+        t = t + h
 
     return xD, yD, xH, yH
 
