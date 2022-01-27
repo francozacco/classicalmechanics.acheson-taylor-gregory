@@ -268,6 +268,28 @@
         Finally
         $$|v| = \frac{\Omega ba\cos(\Omega t)}{2\sqrt{a^2 - b^2 sin^2(\Omega t)}}$$
     \end{proof}
+    \begin{proof}{\textbf{2.22}}
+        \item[(i)]
+        Solving the equations given by computational means (Runge-kutta method)
+        $$\dot{X} = -\frac{v^D X}{\sqrt{X^2 + Y^2}} - v^H_x \quad \quad \ 
+          \dot{Y} = -\frac{v^D Y}{\sqrt{X^2 + Y^2}} - v^H_y$$
+        when $v^D = v^H$ we get the following plot\\
+        \includegraphics{gregory-2.22-1_vd=vh.png}
+\cleardoublepage
+        but if $v^D > v^H$\\
+        \includegraphics{gregory-2.22-1_vd>vh.png}
+\cleardoublepage        
+        \item[(ii)]
+        Now we solve the equations for the case where the Hare has a circular
+        trajectory
+        when $v^D = v^H$ we get the following plot\\
+        \includegraphics{gregory-2.22-2_vd=vh.png}
+\cleardoublepage
+        but if $v^D > v^H$\\
+        \includegraphics{gregory-2.22-2_vd>vh.png}
+          
+    \end{proof}
+
 \end{document}
 
 
