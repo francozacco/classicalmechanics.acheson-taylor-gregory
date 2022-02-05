@@ -7,7 +7,7 @@ import math
 def main():
     plt.figure()
     ax = plt.axes()
-    vd, vh = 0.9, 1
+    vd, vh = 0.99, 1
     ax.set_title(f'vd={vd}, vh={vh}')
     xD, yD, xH, yH = runge_kutta(x0=-1, y0=0, vd=vd, vh=vh)
     plot(ax, xH, yH, "Hare trajectory")
@@ -20,11 +20,11 @@ def main():
 
 
 def fx(x, y, t, vd, vh):
-    return ((-vd*x) / math.sqrt(x**2 + y**2)) - vh*math.cos(t)
+    return ((-vd*x) / math.sqrt(x**2 + y**2)) + vh*math.sin(t)
 
 
 def fy(x, y, t, vd, vh):
-    return ((-vd*y) / math.sqrt(x**2 + y**2)) - vh*math.sin(t)
+    return ((-vd*y) / math.sqrt(x**2 + y**2)) - vh*math.cos(t)
 
 
 def runge_kutta(x0, y0, vd, vh, h=0.01, it=10000):
