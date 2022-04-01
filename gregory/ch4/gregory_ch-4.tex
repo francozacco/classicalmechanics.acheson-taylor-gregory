@@ -1,0 +1,353 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[mathscr]{euscript}
+
+\title{\textbf{Solved selected problems of Classical Mechanics - Gregory}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\newcommand{\hatr}{\bm{\hat{r}}}
+\newcommand{\hatx}{\bm{\hat{x}}}
+\newcommand{\haty}{\bm{\hat{y}}}
+\newcommand{\hatz}{\bm{\hat{z}}}
+\newcommand{\hatth}{\bm{\hat{\theta}}}
+\newcommand{\hatphi}{\bm{\hat{\phi}}}
+\newcommand{\hatrho}{\bm{\hat{\rho}}}
+\theoremstyle{definition}
+\newtheorem*{solution*}{Solution}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 4 - Problems in Particle Dynamics}
+
+	\begin{proof}{\textbf{4.1}}
+        The blocks are being towed at constant speed, then the acceleration
+        is 0 and since both masses are identical the frictional forces ($F$) are
+        identical too then we have the following two equations
+        $$0 = T_0 - T - F \quad\quad\quad 0 = T - F$$
+        $$T = T_0 - F \quad\quad\quad T = F$$
+        the first equation correspond to the block that is being towed and the
+        second equation correspond to the other block. Then if we sum both
+        equations we get that
+        $$2T = T_0 - F + F$$
+        therefore
+        $$T = \frac{T_0}{2}$$
+        but also by subtracting both equations we have that
+        $$F = \frac{T_0}{2}$$
+        If now the tension of the towed block changes to $4T_0$ instantaneously
+        we have the following changes in the equations
+        $$Ma = 4T_0 - T - F \quad\quad\quad Ma = T - F$$
+        by subtracting both equations we get that $0 = 4T_0 - T - F - T + F$
+        so
+        $$T = 2T_0$$
+        also if we consider that $F$ does not changes at that moment then from
+        the second equation and doing the needed replacements we have that
+        $$a = \frac{T-F}{M} = \frac{2T_0 - T_0/2}{M} = \frac{3T_0}{2M}$$
+    \end{proof}
+	\begin{proof}{\textbf{4.3}}
+        For this problem we can replace the spheres by particles which are
+        $1m$ apart. We want to measure the time it takes for them to move
+        $3cm$.
+        The acceleration in this case is not constant since it grows as the
+        spheres approach, so we can calculate the initial acceleration as
+        $$a = \frac{mG}{R^2} = \frac{5000 \cdot 6.67 \times 10^{-11}}{1^2} = 3.335 \times 10^{-7}$$
+        and from $x = 1/2at^2$ we can calculate the collision time (an
+        approximation) as if the acceleration were constant, then
+        $$t = \sqrt{\frac{2x}{a}} = \sqrt{\frac{2 \cdot 0.03}{3.335 \times 10^{-7}}} = 424.15 \si{s}$$
+        Since the accelearation grows as the spheres approach, then the time is
+        going to decrease because of the inverse depencence with the
+        acceleration, therefore the real collision time is even less than the
+        one provided, i.e. the approximated time is an upper bound.
+    \end{proof}
+    \begin{proof}{\textbf{4.4}}
+        For this problem we have the following equations already derived
+        $$ma = mg\sin\alpha - F \quad\quad 0 = N - mg\cos\alpha$$
+        so $N = mg\cos\alpha$ and we know that $F$ is defined as $F = \mu N$
+        then
+        \begin{align*}
+            ma &= mg\sin\alpha - F\\
+            ma &= mg\sin\alpha - \mu mg\cos\alpha\\
+             a &= g(\sin\alpha - \mu\cos\alpha)
+        \end{align*}
+        but we can write the same equation for $a$ as
+        $$a = g\cos\alpha (\tan\alpha - \mu)$$
+        so if $\mu < \tan\alpha$ then $a > 0$ so the block should slide down\\
+        and if $\mu > \tan\alpha$ then $a < 0$ so the block should come to rest
+        at some point.
+    \end{proof}
+    \begin{proof}{\textbf{4.10}}
+        The motion in this case is only happening in the y-axis then the
+        equation of motion is given by 
+        $$m \frac{dv}{dt} = -\frac{GmM}{r^2}$$
+        where $r$ is the distance $OP$.\\
+        Also we know that
+        $$\frac{dv}{dt} = \frac{dr}{dt}\times\frac{dv}{dr} = v\frac{dv}{dr}$$
+        then we have that
+        \begin{align*}
+            v\frac{dv}{dr} &= -\frac{GM}{r^2}\\
+            \int vdv &= -\int \frac{GM}{r^2}dr\\
+            \frac{v^2}{2} &= \frac{GM}{r} + C
+        \end{align*}
+        Where $C$ is a constant that can be determined using the initial
+        conditions. If $v = \sqrt{2GM/a}$ when $r = a$ then we have
+        that 
+        $$C = \frac{GM}{a} - \frac{\sqrt{2GM/a}^2}{2} = 0$$
+        so
+        \begin{align*}
+            v^2 &= \frac{2GM}{r}\\
+            \left(\frac{dr}{dt}\right)^2 &= \frac{2GM}{r}\\
+            \frac{dr}{dt} &= \sqrt{\frac{2GM}{r}}\\
+            \int \sqrt{r}dr &= \int \sqrt{2GM}dt\\
+            \frac{2\sqrt{r^3}}{3} &= \sqrt{2GM}t + C
+        \end{align*}
+        where $C$ is a constant that can be determined by knowing that $r=a$
+        when $t = 0$, then
+        $$C = \frac{2\sqrt{a^3}}{3}$$
+        Finally we can write that
+        \begin{align*}
+            \frac{2\sqrt{r^3}}{3} &= \sqrt{2GM}t + \frac{2\sqrt{a^3}}{3}\\
+            \sqrt{r^3} &= \frac{3}{2}\sqrt{2GM}t + \sqrt{a^3}\\
+            r &= \left(\frac{3}{2}\sqrt{2GM}t + \sqrt{a^3}\right)^{2/3}
+        \end{align*}
+        Then $r$ tends to infinity when $t$ goes to infinity, therefore the
+        particle $P$ escapes from $M$.
+    \end{proof}
+    \begin{proof}{\textbf{4.11}}
+        The motion in this case is only happening in the y-axis then the
+        equation of motion is given by 
+        $$m \frac{dv}{dt} = -\frac{m\gamma}{r^3}$$
+        where $r$ is the distance $OP$.\\
+        Also we know that
+        $$\frac{dv}{dt} = \frac{dr}{dt}\times\frac{dv}{dr} = v\frac{dv}{dr}$$
+        then we have that
+        \begin{align*}
+            v\frac{dv}{dr} &= -\frac{\gamma}{r^3}\\
+            \int vdv &= -\int \frac{\gamma}{r^3}dr\\
+            \frac{v^2}{2} &= \frac{\gamma}{2r^2} + C
+        \end{align*}
+        Where $C$ is a constant that can be determined using the initial
+        conditions. If $v = u$ when $r = a$ then we have
+        that 
+        $$C = \frac{u^2}{2} - \frac{\gamma}{2a^2}$$
+        so
+        \begin{align*}
+            \frac{v^2}{2} &= \frac{\gamma}{2r^2} + \frac{u^2}{2} - \frac{\gamma}{2a^2}\\
+            v^2 &= \frac{\gamma}{r^2} + u^2 - \frac{\gamma}{a^2}
+        \end{align*}
+        hence if $u^2 > \frac{\gamma}{a^2}$ we can define
+        $V^2 = u^2 - \frac{\gamma}{a^2}$ where $V^2$ is a positive constant
+        then
+        $$v^2 = \frac{\gamma}{r^2} + V^2 > V^2$$
+        since the velocity of $P$ is bigger than $V$ then $P$ escapes from $O$.\\
+        
+        For the case $u^2 = \gamma/2a^2$ we have that
+        $$v^2 = \frac{\gamma}{r^2} - \frac{\gamma}{2a^2}$$
+        and the maximum distance is reached when $v=0$ then
+        \begin{align*}
+            0 &= \frac{\gamma}{r_{max}^2} - \frac{\gamma}{2a^2}\\
+            \frac{\gamma}{r_{max}^2} &= \frac{\gamma}{2a^2}\\
+            r_{max}^2 &= 2a^2\\
+            r_{max} &= \sqrt{2}a
+        \end{align*}
+
+        To find the time it takes to reach that altitude we need to get the
+        trajectory from the equation of motion, then
+        \begin{align*}
+            v^2 &= \frac{\gamma}{r^2} - \frac{\gamma}{2a^2}\\
+            \left(\frac{dr}{d\tau}\right)^2 &= \frac{\gamma}{r^2}- \frac{\gamma}{2a^2}\\
+            \frac{dr}{d\tau} &= \sqrt{\frac{\gamma}{r^2}- \frac{\gamma}{2a^2}}\\
+            \int_a^{\sqrt{2}a} \frac{dr}{\sqrt{\frac{\gamma}{r^2}- \frac{\gamma}{2a^2}}}
+                &= \int_0^t d\tau\\
+            \left[
+                \frac{r\sqrt{\frac{\gamma}{r^2}-\frac{\gamma}{2a^2}}}{\frac{\gamma}{2a^2}}
+            \right]_a^{\sqrt{2}a}
+                &=  t\\
+        \end{align*}
+        in this case we are establishing the initial and final conditions
+        directly into the integral 
+        \begin{align*} 
+            \left[
+                - \frac{\sqrt{2}a\sqrt{\frac{\gamma}{2a^2}-\frac{\gamma}{2a^2}}}{\frac{\gamma}{2a^2}}
+                + \frac{a\sqrt{\frac{\gamma}{a^2}-\frac{\gamma}{2a^2}}}{\frac{\gamma}{2a^2}}  
+            \right]
+                &=  t\\
+            \frac{a\sqrt{\frac{\gamma}{2a^2}}}{\frac{\gamma}{2a^2}} &=  t\\
+            \frac{\sqrt{\frac{\gamma}{2}}}{\frac{\gamma}{2a^2}} &=  t\\    
+            a^2\sqrt{\frac{2}{\gamma}} &=  t
+            \end{align*}
+    \end{proof}
+    \begin{proof}{\textbf{4.12}}
+        The equation of motion in this case is happening in the y-axis
+        direction, assuming y-axis is pointing from Sun to Earth, we have that
+        $$m\frac{dv}{dt} = - \frac{GmM}{r^2}$$
+        we are assuming $M$ and $m$ are the masses of the Sun and Earth
+        respectively. Also we know that
+        $$\frac{dv}{dt} = \frac{dr}{dt}\times\frac{dv}{dr} = v\frac{dv}{dr}$$
+        then we can replace $dv/dt$
+        \begin{align*}
+            v\frac{dv}{dr} &= - \frac{GM}{r^2}\\
+            \int vdv &= \int - \frac{GM}{r^2} dr\\
+            \frac{v^2}{2} &= \frac{GM}{r} + C
+        \end{align*}
+        where $C$ is a constant that can be determined using the initial
+        conditions. If $v = 0$ when $r = R$ (where $R$ is the distance at that
+        moment from earth to the sun) then we have that
+        $$C = - \frac{GM}{R}$$
+        so we have
+        \begin{align*}
+            \frac{v^2}{2} &= \frac{GM}{r} - \frac{GM}{R}\\
+            v^2 &= 2GM\left(\frac{1}{r} - \frac{1}{R}\right)
+        \end{align*}
+        now replacing $v$ with $dr/dt$ we have
+        \begin{align*}
+            \left(\frac{dr}{dt}\right)^2
+                &= 2GM\left(\frac{1}{r} - \frac{1}{R}\right)\\
+            \int_R^0 \frac{dr}{\sqrt{\frac{1}{r} - \frac{1}{R}}}
+                &= \int_0^T\sqrt{2GM}dt
+        \end{align*}
+        in this case we have added the initial and final conditions directly to
+        the integral ($T$ is the time taken for Earth to collide with the Sun),
+        then
+        \begin{align*}
+            T &= \frac{1}{\sqrt{2GM}}\int_R^0 \frac{dr}{\sqrt{\frac{1}{r} - \frac{1}{R}}}\\
+              &= \frac{1}{\sqrt{2GM}}\frac{\pi R^{3/2}}{2}\\
+              &= \frac{\pi}{2}\sqrt{\frac{R^3}{2GM}}\\
+        \end{align*}
+        On the other hand we know that the orbital period of the earth is
+        calculated as $T' = 2\pi \sqrt{\frac{R^3}{GM}}$ so we could wirte $T$
+        in terms of $T'$ as
+        $$T = \frac{T'}{4\sqrt{2}}$$
+        since $T' = 365$ days, then $T = 64.52$ days.
+    \end{proof}
+    \begin{proof}{\textbf{4.13}}
+        For the particle $Q$ to remain at rest we need to ensure that
+        $$T = Mg$$
+        where $T$ is the tension on the string and $Mg$ is the weight of $Q$.\\
+        On the other hand, the particle $P$ has only a possible moving
+        trajectory which is a circular motion around $O$ (the origin is fixed
+        at the hole), so the equations of motion for $P$ in polar coordinates
+        is given by
+        $$m\left[-\frac{v^2}{b}\hatr + \dot{v}\hatth\right] = -T\hatr = -Mg\hatr$$
+        where $m$ is the mass of $P$ and $v = b\ddot{\theta}$ is the
+        circumferential velocity.\\
+        Which taking components in the radial and transverse direction, gives
+        \begin{align}
+            -\frac{mv^2}{b} &= -Mg\\
+            \dot{v} &= 0            
+        \end{align}
+        from the equation $(2)$ we see that the velocity should be constant and
+        from $(1)$ we have that
+        $$v^2 = \frac{Mgb}{m}$$
+    \end{proof}
+    \begin{proof}{\textbf{4.15}}
+        We can write the equation of motion for $P$ in polar coordianates as
+        $$m[(\ddot{r} - r\Omega^2)\hatr + (r\dot{\Omega} + 2\dot{r}\Omega)\hatth] = -N\hatth$$
+        where $m$ is the mass of $P$ and $\Omega = \dot{\theta}$.\\
+        Which taking components in the radial and transverse direction, gives
+        \setcounter{equation}{0}% Restart equation counter
+        \begin{align}
+            \ddot{r} - r\Omega^2 &= 0\\
+            r\dot{\Omega} + 2\dot{r}\Omega &= N
+        \end{align}
+        then equations we wanted.\\
+        The equation $(1)$ is second-order linear differential equation, for
+        which we propose a solution to the form
+        $$r(t) = C_1e^{\Omega t} + C_2e^{-\Omega t}$$
+        where $C_1$ and $C_2$ are constants that should be determined by the
+        initial conditions. Since $r=a$ when $t=0$ we have that
+        $$C_1 + C_2 = a$$
+        and we also know that $P$ is at rest at the beginning, so derivating
+        $r$ equation we get
+        $$\frac{dr}{dt} = C_1\Omega e^{\Omega t} - C_2\Omega e^{-\Omega t}$$
+        and applying the initial conditions $dr/dt = 0$ at $t = 0$ we get
+        $$0 = C_1\Omega - C_2\Omega$$
+        then $C_1 = C_2 = a/2$ from the previous equation. Therefore the
+        equation for $r$ is given by
+        $$r(t) = \frac{a}{2}(e^{\Omega t} + e^{-\Omega t})$$
+        On the other hand, replacing $dr/dt$ in equation $(2)$ we have that
+        $$N = ma\Omega^2(e^{\Omega t} - e^{-\Omega t})$$
+    \end{proof}
+\cleardoublepage
+    \begin{proof}{\textbf{4.27}}
+        With the linear resistance term included, the vector equation of motion
+        for the projected body becomes
+        $$m\frac{d\bm{v}}{dt} = - mK\bm{v} - mg \bm{k}$$
+        the direction of $\bm{v}$ is given by
+        $\bm{v} = u\cos\alpha\bm{i} + u\sin\alpha\bm{k}$. We could propose
+        a different magnitude and direction for the gravity, writing the new
+        direction for our new gravity as $\bm{w}$, we get that
+        \begin{align*}
+            g'\bm{w} &= uK\cos\alpha\bm{i} + uK\sin\alpha\bm{k} + g\bm{k}\\
+                   &= uK\cos\alpha\bm{i} + (uK\sin\alpha + g)\bm{k}
+        \end{align*}
+        then we have that the equation of motion is given by
+        $$m\frac{d\bm{v}}{dt} = -mg'\bm{w}$$
+        which is equivalent to the original equation of motion but using our
+        new gravity.
+
+        On the other hand, we want to deduce that it's possible for the body to
+        return to its starting point. By continuity, it's possible to end
+        before and after the starting point, therefore, it's possible to end up
+        exactly at the starting point, the shape of the path, in that case,
+        would be an inclined line. 
+    \end{proof}
+    \begin{proof}{\textbf{4.29}}
+        The vector equation of motion in this case is given by
+        \begin{align*}
+            m[(\ddot{r} - r\dot{\theta}^2)\hatr + (r\ddot{\theta} + 2\dot{r}\dot{\theta})\hatth]
+                &= -T\sin{\alpha}\hatr + (T\cos{\alpha} - mg)\hatz\\
+            -ma\sin\alpha\dot{\theta}^2\hatr &= -T\sin{\alpha}\hatr + (T\cos{\alpha} - mg)\hatz
+        \end{align*}
+        where $m$ is the mass of the particle and $T$ is the tension of the
+        string.\\
+        Which taking components in $\hatr$ and $\hatz$ direction, gives
+        \setcounter{equation}{0}% Restart equation counter
+        \begin{align}
+            ma\sin\alpha\dot{\theta}^2 &= T\sin\alpha\\
+            0 &= T\cos\alpha - mg
+        \end{align}
+        from the equation $(2)$ we have that $T = mg/\cos\alpha$ and replacing
+        on equation $(1)$ we get that
+        \begin{align*}
+            ma\sin\alpha\dot{\theta}^2 &= mg\frac{\sin\alpha}{\cos\alpha}\\
+            (a\sin\alpha)^2\dot{\theta}^2 &= ga\sin\alpha\tan\alpha\\
+            u^2 &= ga\sin\alpha\tan\alpha
+        \end{align*}        
+    \end{proof}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
