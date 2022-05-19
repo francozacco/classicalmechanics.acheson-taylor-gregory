@@ -1,0 +1,504 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[mathscr]{euscript}
+
+\title{\textbf{Solved selected problems of Classical Mechanics - Gregory}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\newcommand{\hatr}{\bm{\hat{r}}}
+\newcommand{\hatx}{\bm{\hat{x}}}
+\newcommand{\haty}{\bm{\hat{y}}}
+\newcommand{\hatz}{\bm{\hat{z}}}
+\newcommand{\hatth}{\bm{\hat{\theta}}}
+\newcommand{\hatphi}{\bm{\hat{\phi}}}
+\newcommand{\hatrho}{\bm{\hat{\rho}}}
+\theoremstyle{definition}
+\newtheorem*{solution*}{Solution}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 5 - Linear Oscillations and normal modes}
+
+	\begin{proof}{\textbf{5.2}}
+    \begin{itemize}
+        \item [(i)] When the two springs are in parallel the restoring force
+        of each one is summed and they have a common strain given by $x$, so
+        the equivalent spring constant or strength in this situation is given
+        by
+        \begin{align*}
+            \alpha_p &= \frac{T_1 + T_2}{x} \\
+                &= \frac{T_1}{x} + \frac{T_2}{x} \\
+                &= \alpha_1 + \alpha_2 \\
+                &= m\Omega_1^2 + m\Omega_2^2
+        \end{align*}
+        therefore the angular frecuency when the body is suspended with the
+        springs in parallel is given by
+        \begin{align*}
+           m\Omega_p^2 &= m\Omega_1^2 + m\Omega_2^2 \\
+           \Omega_p &= \sqrt{\Omega_1^2 + \Omega_2^2}
+        \end{align*}
+        \item[(ii)] In the case that the two springs are in series, one
+        attached to the other the restoring force is common but the strain
+        is going to be different for the two springs meaning that the the total
+        strain is going to be $x_1 + x_2$, then
+        \begin{align*}
+            \alpha_s &= \frac{T}{x_1 + x_2} \\
+                &= \frac{1}{\frac{x_1 + x_2}{T}} \\
+                &= \frac{1}{\frac{x_1}{T} + \frac{x_2}{T}} \\
+                &= \frac{1}{\frac{1}{\alpha_1} + \frac{1}{\alpha_2}} \\
+                &= \frac{\alpha_1\alpha_2}{\alpha_1 + \alpha_2}
+        \end{align*}
+        therefore the angular frecuency when the body is suspended with the
+        springs attached in series is given by
+        \begin{align*}                                
+            m\Omega_s^2 &= \frac{m^2\Omega_1^2\Omega_2^2}{m(\Omega_1^2 + \Omega_2^2)} \\
+            \Omega_s &= \frac{\Omega_1\Omega_2}{\sqrt{\Omega_1^2 + \Omega_2^2}}
+        \end{align*}
+        \item [(iii)] From the above equations we can write that
+        \begin{align*}
+            \frac{\Omega_p}{\Omega_s} &= \frac{\Omega_1^2 + \Omega_2^2}{\Omega_1\Omega_2} \\
+                &= \frac{\Omega_1^2 + \Omega_2^2 + 2\Omega_1\Omega_2 -2\Omega_1\Omega_2}{\Omega_1\Omega_2} \\
+                &= \frac{(\Omega_1 - \Omega_2)^2 + 2\Omega_1\Omega_2}{\Omega_1\Omega_2} \\
+                &= \frac{(\Omega_1 - \Omega_2)^2}{\Omega_1\Omega_2} + 2 \\
+                &\geq 2
+        \end{align*}
+        Therefore, since $\frac{(\Omega_1 - \Omega_2)^2}{\Omega_1\Omega_2}$ is
+        positive $\Omega_p$ is at least twice $\Omega_s$. 
+    \end{itemize}
+    \end{proof}
+	\begin{proof}{\textbf{5.5}}
+    \begin{itemize}
+        \item [(a)] We know that the general real solution for an oscillator is
+        given by
+        $$x = e^{-Kt}(A\cos{\Omega_D t} + B\sin{\Omega_D t})$$
+        where $A$ and $B$ are constants.
+        
+        We know that when $t=0$ then $x=a$ so replacing values we have the
+        value for $A$ as
+        \begin{align*}
+            a &= e^0(A\cos 0 + B \sin 0) \\
+            a &= A
+        \end{align*}
+        Derivating $x$ with respect to $t$ we have that
+        $$\dot{x} = -Ke^{-Kt}(A\cos{\Omega_D t} + B\sin{\Omega_D t}) +
+            e^{-Kt}(-A\Omega_D\sin{\Omega_D t} + B\Omega_D\cos{\Omega_D t})$$
+        and we know that the particle starts from rest so when $t=0$ then
+        $\dot{x} = 0$, so replacing values we have
+        \begin{align*}
+            0 &= -Ke^0(A\cos0 + B\sin0) + e^0(-A\Omega_D\sin0 + \Omega_DB\cos0) \\
+            0 &= -KA + \Omega_D B \\
+            B &= \frac{aK}{\Omega_D} 
+        \end{align*}
+        Finally, replacing the values for $A$ and $B$, we have that
+        $$x = ae^{-Kt}\left(\cos{\Omega_D t} + \frac{K}{\Omega_D}\sin{\Omega_D t}\right)$$
+        which is what we wanted.
+        \item [(b)] To find the turning points of $x(t)$ we need to derivate
+        $x$ and make it equal to $0$, since when $\dot{x} = 0$ we are at a
+        turning point, then
+        \begin{align*}
+            \dot{x} &= -aKe^{-Kt}(\cos{\Omega_D t} + \frac{K}{\Omega_D}\sin{\Omega_D t})
+                + a e^{-Kt}(-\Omega_D\sin{\Omega_D t} + \frac{K}{\Omega_D}\Omega_D\cos{\Omega_D t}) \\
+                &= ae^{-Kt}(-K\cos{\Omega_D t} -\frac{K}{\Omega_D}\sin{\Omega_D t}
+                -\Omega_D\sin{\Omega_D t} + K\cos{\Omega_D t}) \\
+                &= ae^{-Kt}(-\frac{K}{\Omega_D}-\Omega_D)\sin\Omega_Dt
+        \end{align*}
+        So when $\sin\Omega_D t = 0$ we are at a turning point of $x$ which
+        means that $t$ needs to be
+        $$t = \frac{k\pi}{\Omega_D}$$
+        where $k$ is an integer and $k \geq 0$.
+        \item [(c)] According to the previous result the maximum value of $x$
+        should happen at $t = 0, 2\pi/\Omega_D, 4\pi/\Omega_D, ...$ then the
+        values of $x$ are
+        $$x = a,~ae^{-\frac{2\pi K}{\Omega_D}},~ae^{-\frac{4\pi K}{\Omega_D}},~...$$
+        therefore, the ratio between maximums is $e^{-\frac{2\pi K}{\Omega_D}}$
+        \item [(d)] We know that the period of the oscillations in this case is
+        defined as
+        $$\tau = \frac{2\pi}{\Omega_D}$$
+        then
+        $$\Omega_D = \frac{2}{5}\pi$$
+        on the other hand, the ratio between maximums is 3:1 so
+        $$e^{-\frac{2\pi K}{\Omega_D}} = \frac{1}{3}$$
+        then
+        \begin{align*}
+            e^{-\frac{2\pi K}{\frac{2\pi}{5}}} &= \frac{1}{3} \\
+            e^{-5K} &= \frac{1}{3} \\
+            -5K &= \log{\frac{1}{3}} \\
+            K &= \frac{\log{3}}{5} \\
+            \beta &= 4\log{3} = 4.39~\si{Nsm^{-1}} 
+        \end{align*}
+        finally we calculate $\alpha$ as
+        \begin{align*}
+            \Omega_D &= \frac{2}{5}\pi \\
+            \Omega^2-K^2 &= \frac{4}{25}\pi^2 \\
+            \Omega^2 &= \frac{4}{25}\pi^2 +\frac{(\log{3)^2}}{25} \\
+            \alpha &= 10\left(\frac{4\pi^2 +(\log{3})^2}{25}\right) = 16.27~\si{Nm^{-1}} 
+        \end{align*}
+    \end{itemize}
+    \end{proof}
+	\begin{proof}{\textbf{5.6}}
+        In the case of critical damping we want to find the solution to the
+        SHM equation
+        $$\frac{d^2x}{dt^2} + 2K\frac{dx}{dt} + \Omega^2x = 0$$
+        when $K = \Omega$, so we proceed by seeking for solutions of the form
+        $x = e^{-\lambda t}$. Then $\lambda$ must satisfy the equation
+        $$\lambda^2 + 2K\lambda + \Omega^2 = 0$$
+        that is
+        \begin{align*}
+            (\lambda + K)^2 &= K^2 - \Omega^2 \\
+                            &= 0
+        \end{align*}
+        then $\lambda = -K = -\Omega$, so the set of solutions is given by
+        \begin{equation*}
+            x = 
+            \begin{cases}
+                e^{-K t} \\
+                te^{-K t}
+            \end{cases}
+        \end{equation*}
+        The general solution of the crical damped SHM equation in this case is
+        therefore
+        $$x = e^{-Kt}(A + Bt)$$
+        when applying the initial conditions that $x=a$ and $\dot{x} =0 $ when
+        $t=0$ we have that $A = a$ from $x(0) = a$ and $B = Ka = \Omega a$ from
+        $\dot{x}(0) = 0$ therefore
+        $$x = ae^{-\Omega t}(1 + \Omega t)$$
+    \end{proof}
+\cleardoublepage
+	\begin{proof}{\textbf{5.7}}
+        From problem 5.5 we know that the sub-critical solution for the SHM
+        equation with the initial conditions $x=a$ when $t=0$ is
+        $$x = ae^{-Kt}\left(\cos{\Omega_D t} + \frac{K}{\Omega_D}\sin{\Omega_D t}\right)$$
+        also we know that the first minimum of this equation happens at 
+        $$t = \frac{\pi}{\Omega_D} \quad\quad\text{then}\quad\quad 
+            x(\pi/\Omega_D) = -ae^{-\frac{K\pi}{\Omega_D}}$$
+        and we want that the $x = -\epsilon a$ then
+        \begin{align*}
+            -\epsilon a &= -ae^{-\frac{K\pi}{\Omega_D}} \\
+               \epsilon &= e^{-\frac{K\pi}{\Omega_D}} \\
+            \log{1/\epsilon} &= \frac{K\pi}{\sqrt{\Omega^2 - K^2}} \\
+            \log^2{1/\epsilon} &= \frac{K^2\pi^2}{K^2(\frac{\Omega^2}{K^2} - 1)} \\
+            \log^2{1/\epsilon} &= \frac{\pi^2}{\frac{\Omega^2}{K^2} - 1} \\
+            \frac{\Omega^2}{K^2} - 1 &= \frac{\pi^2}{\log^2{1/\epsilon}} \\
+            K &= \frac{\Omega}{\sqrt{\frac{\pi^2}{\log^2{1/\epsilon}} + 1}}    \\
+        \end{align*}
+        We know that the time taken for $x$ to reach its ﬁrst minimum is
+        $\pi/\Omega_D$.\\
+        We want to approximate $K$ using the binomial approximation, so we
+        need to ensure that $|\pi/\log(1/\epsilon)| < 1$ and selecting a
+        sufficiently small value of $\epsilon$ we can ensure that and so
+        approximate $K$ as
+        $$K^2 = \Omega^2\left[\left(\frac{\pi}{\log{1/\epsilon}}\right)^2 + 1\right]^{-1}
+            \approx \Omega^2\left[1 - \left(\frac{\pi}{\log{1/\epsilon}}\right)^2\right]$$
+        with this approximation we calculate $\Omega_D$ as 
+        \begin{align*}
+            \Omega_D^2 &= \Omega^2 - K^2 \\
+            \Omega_D^2 &= \Omega^2\left[1 - \left[1 - 
+            \left(\frac{\pi}{\log{1/\epsilon}}\right)^2\right]\right]\\
+            \Omega_D^2 &= \Omega^2\left(\frac{\pi}{\log{1/\epsilon}}\right)^2\\
+            \Omega_D &= \frac{\Omega\pi}{\log{1/\epsilon}}
+        \end{align*}
+        therefore
+        $$\frac{\pi}{\Omega_D} = \frac{\log{1/\epsilon}}{\Omega}$$
+    \end{proof}
+	\begin{proof}{\textbf{5.10}}
+        First we need to find the driven response $x^D$. The complex
+        counterpart of the equation of motion is
+        $$\ddot{x} + \Omega^2\dot{x} = F_0 e^{i\Omega(1+\epsilon)t}$$
+        and we seek a solution for this equation of the form
+        $x = ce^{i\Omega(1+\epsilon)t}$, substituting we find that
+        $$c = \frac{F_0}{\Omega^2(1-(1+\epsilon)^2)} = -\frac{F_0}{\Omega^2\epsilon(2 +\epsilon)}$$
+        then the driven response is given by
+        $$x^D = \Re\left[-\frac{F_0e^{i\Omega(1+\epsilon)t}}{\Omega^2\epsilon(2 +\epsilon)}\right]
+            = -\frac{F_0\cos{(\Omega(1+\epsilon)t)}}{\Omega^2\epsilon(2 +\epsilon)}$$
+        To find the complementary function $x^{CF}$, we need to solve
+        $$\ddot{x} + \Omega^2\dot{x} = 0$$
+        which is going to have a solution of the form
+        $$x = A\cos{\Omega t} + B\sin{\Omega t}$$
+        then the general solution is going to be
+        $$x = A\cos{\Omega t} + B\sin{\Omega t} -
+            \frac{F_0\cos{(\Omega(1+\epsilon)t)}}{\Omega^2\epsilon(2 +\epsilon)}$$
+        and we can find the values of the constants $A$ and $B$ taking into
+        account the initial conditions $x =0$ and $\dot{x} = 0$ when $t=0$, so
+        from $x(0) = 0$ we have that
+        $$A = \frac{F_0}{\Omega^2\epsilon(2 +\epsilon)}$$
+        then differentiating $x$ as
+        $$\dot{x} = -A\Omega\sin{\Omega t} + B\Omega\cos{\Omega t} + 
+            \frac{F_0(1+\epsilon)}{\Omega\epsilon(2 +\epsilon)}\sin{(\Omega(1+\epsilon)t)}$$
+        and computing $\dot{x}(0) = 0$ we have that
+        $$B = 0$$
+        therefore the general solution is
+        $$x = \frac{F_0}{\Omega^2\epsilon(2 +\epsilon)}[cos{(\Omega t)} - \cos{(\Omega(1+\epsilon)t)}]$$
+        therefore by the trigonometric identity we have
+        $$x = \frac{F_0}{\Omega^2\epsilon(1 +\frac{1}{2}\epsilon)}\sin{(\Omega t(1 +\frac{1}{2}\epsilon))}\sin{(\frac{1}{2}\Omega t\epsilon)}$$    
+    \end{proof}
+	\begin{proof}{\textbf{5.11}}
+        If we assume that the profile of the road grows really slow then we can
+        approximate $x$ as $x = ct$ then the displacement of the spring is 
+        given by
+        $$\delta = y - h(ct)$$
+        and the equation of motion can be written as
+        $$m\ddot{y} = -\alpha\delta - \beta\dot{\delta}$$
+        where $\alpha = m\Omega^2$ is the spring constant and $\beta = 2mK$ is
+        the resistance constant, so replacing values we have
+        \begin{align*}
+            m\ddot{y} &= -m\Omega^2(y - h(ct)) - 2mK(\dot{y} - ch'(ct)) \\
+            \ddot{y} + 2K\dot{y} + \Omega^2y &= 2Kch'(ct) + \Omega^2h(ct)
+        \end{align*}
+        which is the equation we were looking for.
+        
+        If we suppose now that $h(x) = h_0 \cos(px/c)$ the equation is given by
+        $$\ddot{y} + 2K\dot{y} + \Omega^2y = h_0(-2Kp\sin{pt} + \Omega^2\cos{pt})$$
+        which can be written as its complex counterpart as
+        $$\ddot{y} + 2K\dot{y} + \Omega^2y = h_0(2iKp+\Omega^2)e^{ipt}$$
+        and we seek a solution of this equation of the form $y = ce^{ipt}$ then
+        by replacing we obtain
+        $$-p^2c + 2Kcip + \Omega^2c = h_0(2iKp + \Omega^2)$$
+        then $c$ is given by
+        $$c = \frac{h_0(2iKp + \Omega^2)}{-p^2 + 2Kip + \Omega^2}$$
+        but we want $a$ which is given by $a = |c|$ so
+        \begin{align*}
+            a &= \frac{h_0|2iKp + \Omega^2|}{|\Omega^2 -p^2 + 2Kip|} \\
+              &= \frac{h_0\sqrt{\Omega^4 + (2Kp)^2}}{\sqrt{(\Omega^2-p^2)^2 + (2Kp)^2}}            
+        \end{align*}
+
+        If $K = \Omega$ and changing variables taking $u = \Omega^2/p^2$ we
+        have that
+        \begin{align*}
+            \frac{a^2}{h_0^2} &= \frac{\Omega^4+(2\Omega p)^2}{\Omega^4 - 2\Omega^2p^2 + p^4 + 4\Omega^2p^2} \\
+             &= \frac{\Omega^2p^2(\Omega^2/p^2 + 2^2)}{\Omega^2p^2(\Omega^2/p^2 + 2 + p^2/\Omega^2)} \\
+             &= \frac{u + 4}{u + 2 + 1/u} \\
+             &= \frac{u(u + 4)}{u^2 + 2u + 1}
+        \end{align*}
+        we want to know the maximum value of $a$ then we name $f = a^2/h_0^2$
+        and we differentiate the above expression with respect to $u$
+        \begin{align*}
+            \frac{df}{du} &= \frac{(u^2 + 2u + 1)(u + 4 + u) - (u(u + 4))(2u + 2)}{(u^2 + 2u + 1)^2} \\
+                &= \frac{2u^3 + 8u^2 + 10u + 4 - (2u^3 + 10u^2 + 8u)}{(u^2 + 2u + 1)^2} \\
+                &= \frac{-2u^2 + 2u + 4}{(u^2 + 2u + 1)^2}            
+        \end{align*}
+        now we make $df/du = 0$ and solve for $u$
+        $$2(u^2 - u - 2) = 0$$
+        which roots are $u = 2$ and $u = -1$, and given that $\Omega$ and $p$
+        are positive constants then we are interested in $u = 2$. Replacing in
+        the equation for $a^2/h_0^2$ we have that
+        $$\frac{a^2}{h_0^2} = \frac{12}{9}$$
+        then
+        $$a \leq \sqrt{\frac{12}{9}}h_0 = \frac{2}{\sqrt{3}}h_0$$
+    \end{proof}
+\cleardoublepage
+    \begin{proof}{\textbf{5.12}}
+        The ﬁrst step is to ﬁnd the Fourier series of the function $F(t)$. From
+        the Fourier series equation, the coefﬁcient $a_n$ is given by
+        \begin{align*}
+            a_n &= \frac{1}{\pi}\int_{-\pi}^{\pi} F(t) \cos(nt)dt\\
+                &= \frac{F_0}{\pi}\int_{-\pi}^{\pi} t\cos(nt)dt \\
+                &= \frac{F_0}{\pi}\left[\frac{nt\sin(nt)+\cos(nt)}{n^2}\right]_{-\pi}^{\pi} \\
+                &= \frac{F_0}{\pi}\left[\frac{\cos(n\pi)}{n^2} - \frac{\cos(-n\pi)}{n^2}\right] \\
+                &= 0
+        \end{align*}
+        In the same way we calculate $b_n$ as
+        \begin{align*}
+            b_n &= \frac{1}{\pi}\int_{-\pi}^{\pi} F(t) \sin(nt)dt\\
+                &= \frac{F_0}{\pi}\int_{-\pi}^{\pi} t\sin(nt)dt \\
+                &= \frac{F_0}{\pi}\left[\frac{\sin(nt)-nt\cos(nt)}{n^2}\right]_{-\pi}^{\pi} \\
+                &= \frac{F_0}{\pi}\left[\frac{-\pi\cos(n\pi)}{n} - \frac{\pi\cos(-n\pi)}{n}\right] \\
+                &= -\frac{2F_0\cos(n\pi)}{n} = -\frac{2F_0(-1)^n}{n}
+        \end{align*}
+        Hence the Fourier series of the function $F(t)$ is
+        $$F(t) = \sum^{\infty}_{n=1}\frac{-2F_0(-1)^n}{n} \sin(nt)$$
+        The next step is to ﬁnd the driven response to the force
+        $mb_n\sin(nt)$, that is, the particular integral of the equation
+        $$\frac{d^2x}{dt^2} + 2K\frac{dx}{dt} + \Omega^2x = b_n\sin(nt) \quad\quad (1)$$
+        the complex counterpart of this equation is
+        $$\frac{d^2x}{dt^2} + 2K\frac{dx}{dt} + \Omega^2x = b_ne^{int}$$
+        and we seek for a solution of the form $x = ce^{int}$ then by replacing
+        in the equation we get that
+        $$-cn^2 + 2iKcn + \Omega^2c = b_n$$
+        so the complex amplitude is 
+        $$c = \frac{b_n}{\Omega^2 - n^2 + 2iKn}$$
+        then the solution for the real equation $(1)$ is given by
+        $$\Im\left[\frac{b_ne^{int}}{\Omega^2 - n^2 + 2iKn}\right] = 
+            b_n\left(\frac{(\Omega^2-n^2)\sin(nt) + 2Kn\cos(nt)}{(\Omega^2-n^2)^2+4K^2n^2}\right)$$
+        Finally we add together these separate responses to ﬁnd the driven response
+        $$x = -2F_0\sum_{n=1}^{\infty}\frac{(-1)^n}{n}\left(\frac{(\Omega^2-n^2)\sin(nt) + 2Kn\cos(nt)}{(\Omega^2-n^2)^2+4K^2n^2}\right)$$
+    \end{proof}
+    \begin{proof}{\textbf{5.15}}
+        Given that the oscillator is partially damped the equations of motion
+        are the following
+        \begin{align}
+            \ddot{x} + 2K\dot{x} + \Omega^2x = 0 \quad&\text{when}\quad x>0\\
+            \ddot{x} + \Omega^2x = 0 \quad&\text{when}\quad x<0
+        \end{align}
+        and we know that the solutions to these equations are
+        \begin{align}
+            x_{+} = e^{-Kt}(A\cos{\Omega_Dt} + B\sin{\Omega_Dt}) \\
+            x_{-} = A\cos{\Omega t} + B\sin{\Omega t}
+        \end{align}
+
+        then $(3)$ has a period of $\tau = 2\pi/\Omega_D$ and $(4)$ has a
+        period of $\tau = 2\pi/\Omega$. These two solutions must match at $x=0$
+        so the total period should be half the period of $(3)$ and half the
+        period of $(4)$ then
+        $$\tau = \frac{\frac{2\pi}{\Omega_D}}{2} + \frac{\frac{2\pi}{\Omega}}{2}
+            = \pi\left(\frac{1}{\Omega_D} + \frac{1}{\Omega}\right)$$
+
+        The maximum values of $x$ are going to happen on the positive side 
+        of the oscillation i.e. on the side of $x_{+}$. If the first maximum
+        value happen at $t = 0$ then
+        $$x = e^{-K0}(A_1\cos{\Omega_D0} + B_1\sin{\Omega_D0}) = A_1$$
+        the next maximum is going to happen at $t=2\tau$ but we first need to
+        determine the constants for the half negative period where $x$ is given
+        by
+        $$x = A_2\cos{\Omega t} + B_2\sin{\Omega t}$$
+        Since this is a tedious algebraic calculation we are going to say that
+        the constants for the half negative period can be determined in terms
+        of $A_1$, $B_1$ so $A_2 = f(A_1, B_1, B_2)$ and $B_2 = g(A_1, B_1, A_2)$
+        therefore the values of the constants for the half positive period are
+        also functions of $A_1$ and $B_1$, so we are going to write the ratio
+        between maximums just as
+        \begin{align*}
+            \text{maximums ratio} &= \frac{e^{-2K\tau}(A_3\cos(\Omega_D2\tau) + B_3\sin(\Omega_D2\tau))}{e^{-K0}(A_1\cos{\Omega_D0} + B_1\sin{\Omega_D0})} \\
+                &= \frac{e^{-2K\tau}(A_3\cos(\Omega_D2\tau) + B_3\sin(\Omega_D2\tau))}{A_1}
+        \end{align*}
+    \end{proof}
+    \begin{proof}{\textbf{5.18}}
+        In this case, we define $x_1$ and $x_2$ as the displacements
+        perpendicular to the downward vertical that passes through $O$ for the
+        particles $P$ and $Q$ respectively. Also, we name $y_1$ and $y_2$ to 
+        the displacements in the downward vertical direction for each particle.
+        Then the equations of motion for particle $P$ can be written as
+        \begin{align*}
+            3m\ddot{x_1} &= T_1\sin\phi -T_0\sin\theta  \\
+            3m\ddot{y_1} &= T_1\cos\phi + 3mg - T_0\cos\theta            
+        \end{align*}
+        and for particle $Q$ as
+        \begin{align*}
+            m\ddot{x_2} &= - T_1\sin\phi \\
+            m\ddot{y_2} &= mg - T_1\cos\phi
+        \end{align*}
+        If the displacements of $x_1$ and $x_2$ are small then we could say
+        that $x_1/a \approx \theta$, $x_2/a \approx \theta + \phi$,
+        $\sin\theta \approx \theta$ and that $\sin\phi \approx \phi$ also
+        we can neglect the displacement in the $y_1$ and $y_2$ direction so
+        the cosines of the angles are approximated to $1$ then we have for the
+        particle $P$ that
+        \setcounter{equation}{0}
+        \begin{align}
+            3ma\ddot{\theta} &= T_1\phi - T_0\theta \\
+            0 &= T_1 + 3mg - T_0            
+        \end{align}
+        and for the particle $Q$ we have that
+        \begin{align}
+            ma(\ddot{\theta} + \ddot{\phi}) &= -T_1\phi \\
+            0 &= mg - T_1
+        \end{align}
+        from $(4)$ we have that $T_1 = mg$ and then replacing that in $(2)$ we
+        have that $T_0 = 4mg$ then we get the following equations
+        \begin{align*}
+            3\ddot{\theta} + 4n^2\theta - n^2\phi &= 0\\
+            \ddot{\theta} + \ddot{\phi} + n^2\phi &= 0 
+        \end{align*}
+        now replacing the value of $\phi$ from the last equation in the first
+        one we get the following set of equations
+        \begin{align}
+            4\ddot{\theta} + \ddot{\phi} + 4n^2\theta &= 0\\
+            \ddot{\theta} + \ddot{\phi} + n^2\phi &= 0 
+        \end{align}
+        which are the equations we wanted.
+\cleardoublepage
+        The equations will have normal mode solutions of the form
+        \begin{align*}
+            \theta &= A\cos(\omega t - \gamma)\\
+            \phi &= B\cos(\omega t - \gamma)
+        \end{align*}
+        then replacing the normal mode equations in the equations $(5)$ and
+        $(6)$ we obtain that
+        \begin{align*}
+            -4\omega^2A\cos(\omega t - \gamma) -\omega^2B\cos(\omega t - \gamma) + 4n^2A\cos(\omega t - \gamma) &= 0 \\
+            -\omega^2A\cos(\omega t - \gamma) -\omega^2B\cos(\omega t - \gamma) + n^2B\cos(\omega t - \gamma) &= 0
+        \end{align*}
+        which simplifying gives
+        \begin{align}
+            4(n^2-\omega^2)A -\omega^2B &= 0 \\
+            -\omega^2A + (n^2-\omega^2)B &= 0
+        \end{align}
+        we require the equations to have a non-trivial solution for $A$ and $B$.
+        So the determinant of the system of equations should be zero, that is
+        \begin{align*} 
+            \begin{vmatrix}
+            4(n^2-\omega^2) & -\omega^2 \\
+            -\omega^2 & (n^2-\omega^2) 
+            \end{vmatrix}
+            &= 0
+        \end{align*}
+        On simpliﬁcation, this gives the condition
+        $$3\omega^4 -8n^2\omega^2 + 4n^4 = 0$$
+        a quadratic equation in the variable $\omega^2$ which solutions are
+        $$\omega_1^2 = 2n^2 \quad\quad\quad \omega_2^2 =\frac{2}{3}n^2$$
+        then the normal frequencies are $\omega_1 = \sqrt{2}n$ and
+        $\omega_2 = \sqrt{2/3}n$
+
+        Now we replace the values of the normal frequencies in the equations
+        $(7)$ and $(8)$. We have for $\omega_1$ that $B=-2A$ then we have thus
+        found a family of non-trivial solutions $A=\delta$ and $B=-2\delta$,
+        where $\delta$ can take any (non-zero) value. The normal mode therefore
+        has the form
+        \begin{align*}
+            \theta &= \delta\cos(\omega_1 t - \gamma_1)\\
+            \phi &= -2\delta\cos(\omega_1 t - \gamma_1)
+        \end{align*}
+        In the same way for $\omega_2$ we have that $B = 2A$ then $A=\delta$
+        and $B = 2\delta$. The normal mode therefore has the form
+        \begin{align*}
+            \theta &= \delta\cos(\omega_2 t - \gamma_2)\\
+            \phi &= 2\delta\cos(\omega_2 t - \gamma_2)
+        \end{align*}
+        The general motion is now the sum of the ﬁrst normal mode (with
+        amplitude factor $\delta_1$ and phase factor $\gamma_1$) and the second
+        normal mode (with amplitude factor $\delta_2$ and phase factor
+        $\gamma_2$).
+        \begin{align*}
+            \theta &= \delta_1\cos(\omega_1 t - \gamma_1) + \delta_2\cos(\omega_2 t - \gamma_2)\\
+            \phi &= -2\delta_1\cos(\omega_1 t - \gamma_1) + 2\delta_2\cos(\omega_2 t - \gamma_2)
+        \end{align*}
+        For this system $\tau_1/\tau_2 = \omega_2/\omega_1 = 1/\sqrt{3}$ so
+        the general motion is not periodic.
+    \end{proof}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
