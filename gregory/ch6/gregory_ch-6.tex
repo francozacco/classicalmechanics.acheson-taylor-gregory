@@ -1,0 +1,432 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[mathscr]{euscript}
+
+\title{\textbf{Solved selected problems of Classical Mechanics - Gregory}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\newcommand{\hatr}{\bm{\hat{r}}}
+\newcommand{\hatx}{\bm{\hat{x}}}
+\newcommand{\haty}{\bm{\hat{y}}}
+\newcommand{\hatz}{\bm{\hat{z}}}
+\newcommand{\hatth}{\bm{\hat{\theta}}}
+\newcommand{\hatphi}{\bm{\hat{\phi}}}
+\newcommand{\hatrho}{\bm{\hat{\rho}}}
+\theoremstyle{definition}
+\newtheorem*{solution*}{Solution}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Chapter 6 - Energy conservation}
+
+	\begin{proof}{\textbf{6.6}}
+        Given that the potential energy is $V = V_0(x/b)^4$ then the potential energy is
+        a U-shaped curve where the lowest point is at $x=0$ where $V=0$ and because of
+        the energy conservation $V$ cannot go above a threshold given by $E$, therefore
+        the only possible motion for a particle is an oscillation around $x=0$.
+
+        Let us suppose now suppose that the oscillation has an amplitude of $a$ so when
+        $x=a$ then $v=0$ and by the energy conservation formula with this initial
+        conditions  we have that
+        $$E = V_0 (\frac{a}{b})^4$$
+        Then from the energy conservation formula we have that
+        \begin{align*}
+            \frac{1}{2}m(\frac{dx}{dt})^2 +V_0(\frac{x}{b})^4 &= V_0 (\frac{a}{b})^4 \\
+            \frac{dx}{dt} &= \sqrt{\frac{2}{m}V_0((\frac{a}{b})^4 - (\frac{x}{b})^4)}\\
+            \frac{dx}{dt} &= \sqrt{\frac{2}{m}V_0\frac{a^4-x^4}{b^4}}
+        \end{align*}
+        And from here we can determine $\tau$ solving the ODE integrating one side from
+        0 to $a$ which is the aplitude and the other side from 0 to $\tau/4$ because
+        we are taking into account a quarter of a period, then
+        \begin{align*}
+            \int_0^{\tau/4} dt &= \int_{0}^{a} \frac{dx}{\sqrt{\frac{2}{m}V_0\frac{a^4-x^4}{b^4}}}\\
+            \tau &= \frac{4}{\sqrt{2}}\sqrt{\frac{m}{V_0}}b^2
+                    \int_{0}^{a} \frac{dx}{\sqrt{a^4-x^4}}\\
+                &= \frac{4}{\sqrt{2}}\sqrt{\frac{m}{V_0}}b^2
+                \int_{0}^{a} \frac{dx}{\sqrt{a^4-x^4}}
+        \end{align*}
+        Let us now do the following variable replacement, let us define $\xi = x/a$
+        then changing the limits of integration correspondingly we get that 
+        \begin{align*}
+            \tau &= 2\sqrt{2}\sqrt{\frac{m}{V_0}}b^2
+                \int_{0}^{1} \frac{ad\xi}{\sqrt{a^4-(a\xi)^4}}\\
+                &= 2\sqrt{2}\sqrt{\frac{m}{V_0}}b^2
+                \int_{0}^{1} \frac{ad\xi}{\sqrt{a^4(1-\xi^4)}}\\
+                &= 2\sqrt{2}\sqrt{\frac{m}{V_0}}\frac{b^2}{a}
+                \int_{0}^{1} \frac{d\xi}{\sqrt{1-\xi^4}}
+        \end{align*}
+    \end{proof}
+    \begin{proof}{\textbf{6.7}}
+        Given that the particle is moving towards the origin with speed $u$ then we can
+        determine the total energy $E$ at this moment as
+        $$E = \frac{1}{2}mu^2$$
+        Then when the particle is at the origin it experiences a force $F = -Kx^2$ so
+        by integrating this equation we can get the potential energy as
+        \begin{align*}
+            V &= -\int_0^x -K{x'}^2 dx'\\
+              &= K\int_0^x {x'}^2 dx'\\
+              &= K\left[\frac{x^3}{3} -0\right] = K\frac{x^3}{3}
+        \end{align*}
+        Where $x$ is how far the particle is going to get given that the force that the
+        particle is experiencing is decelerating it.
+        Let us now write the corresponding energy conservation equation at this moment
+        as
+        \begin{align*}
+            \frac{1}{2}mv^2 + K\frac{x^3}{3} &= \frac{1}{2}mu^2\\
+            K\frac{x^3}{3} &= \frac{1}{2}m(u^2-v^2)\\
+            x &= \sqrt[3]{\frac{3}{2}\frac{m}{K}(u^2-v^2)}
+        \end{align*} 
+        So at $v=0$ we get the furthest point that the particle is going to get.
+        $$x = \sqrt[3]{\frac{3}{2}\frac{m}{K}u^2}$$ 
+    \end{proof}
+\cleardoublepage
+    \begin{proof}{\textbf{6.8}}
+        The potential energy $V(x)$ for the force $F(x)$ we have is given by
+        \begin{align*}
+            V(x) &= - \int - \frac{2mMGx}{(a^2 + x^2)^{3/2}} dx\\
+                 &= 2mMG \int \frac{x}{(a^2 + x^2)^{3/2}} dx\\
+                 &= 2mMG \left[ -\frac{1}{\sqrt{a^2+x^2}}\right]
+        \end{align*}
+        During the period from $x=3a/4$ to $x=0$ the energy conservation equation is
+        given by
+        $$\frac{1}{2}mv^2 - \frac{2mMG}{\sqrt{a^2+x^2}} = E$$
+        and using the initial conditions $v=0$ and $x=3a/4$ we get that
+        \begin{align*}
+            E &= 0 - \frac{2mMG}{\sqrt{a^2+(3a/4)^2}}\\
+              &= - \frac{2mMG}{\sqrt{\frac{25}{16}a^2}}\\
+              &= - \frac{8mMG}{5a}
+        \end{align*}
+        Therefore the complete energy conservation equation is
+        $$\frac{1}{2}mv^2 - \frac{2mMG}{\sqrt{a^2+x^2}} = - \frac{8mMG}{5a}$$
+        So when the particle reaches the origin the force in the $x$ direction is 0
+        therefore the maximum speed is reached when $x=0$, then with this in mind 
+        the energy conservation equation turns into
+        \begin{align*}
+            \frac{1}{2}mv^2 &= \frac{2mMG}{\sqrt{a^2}} - \frac{8mMG}{5a}\\
+            \frac{1}{2}mv^2 &= \frac{2mMG}{5a}\\
+                          v &= \sqrt{\frac{4MG}{5a}}
+        \end{align*}
+    \end{proof}
+\cleardoublepage
+    \begin{proof}{\textbf{6.9}}
+        The potential energy $V(x)$ for the force $F(x)$ we have is given by
+        \begin{align*}
+            V(x) &= - \int - \frac{2mMG}{a^2}\left[1 - \frac{z}{\sqrt{a^2 + z^2}}\right] dz\\
+                 &= \frac{2mMG}{a^2} \int 1 - \frac{z}{\sqrt{a^2 + z^2}} dz\\
+                 &= \frac{2mMG}{a^2} \left[z - \int \frac{z}{\sqrt{a^2 + z^2}} dz\right]\\
+                 &= \frac{2mMG}{a^2} \left[z - \sqrt{a^2+z^2}\right]
+        \end{align*}
+        During the period from $z=4a/3$ to $z=0$ the energy conservation equation is
+        given by
+        $$\frac{1}{2}mv^2 + \frac{2mMG}{a^2} \left[z - \sqrt{a^2+z^2}\right] = E$$
+        and using the initial conditions $v=0$ and $z=4a/3$ we get that
+        \begin{align*}
+            E &= 0 + \frac{2mMG}{a^2} \left[\frac{4}{3}a - \sqrt{a^2+(\frac{4}{3}a)^2}\right]\\
+              &= \frac{2mMG}{a^2} \left[\frac{4}{3}a - a\sqrt{\frac{25}{9}}\right]\\
+              &= \frac{2mMG}{a}\left[\frac{4-5}{3}\right]\\
+              &= -\frac{2mMG}{3a}
+        \end{align*}
+        Therefore the complete energy conservation equation is
+        $$\frac{1}{2}mv^2 + \frac{2mMG}{a^2} \left[z - \sqrt{a^2+z^2}\right] = -\frac{2mMG}{3a}$$
+        So when the particle reaches the origin (hitting the disk) the energy
+        conservation equation turns into
+        \begin{align*}
+            \frac{1}{2}mv^2 &= \frac{2mMG}{a} - \frac{2mMG}{3a}\\
+            \frac{1}{2}mv^2 &= \frac{4mMG}{3a}\\
+                          v &= \sqrt{\frac{8MG}{3a}}
+        \end{align*}
+    \end{proof} 
+    \begin{proof}{\textbf{6.17}}
+        The forces acting on P are uniform gravity $mg$ and the constraint force N which
+        is the normal reaction of the smooth wire. Since $N$ is perpendicular to
+        $v$ it follows that $N$ does no work. Then the energy conservation equation is
+        given by
+        $$\frac{1}{2}mv^2 + mgz = E$$
+        So by plugging the intial contidions $v=0$ when $z=2\pi b$ we have that
+        $E= 2\pi mgb$.
+        Then the energy conservation equation becomes
+        $$\frac{1}{2}v^2 + gz = 2\pi gb$$
+        And the velocity of the particle is given by
+        $$v = \sqrt{2g(2\pi b - z)}$$
+        Then to get the arrival velocity we plug $z=0$ and we get that
+        $$v = 2\sqrt{g\pi b}$$
+        Let us now calculate the time taken to reach the point $(a, 0, 0)$.
+        From the equations we have for the position of the particle we can calculate the
+        velocity at any point on the helix as follows. The components of the velocity
+        are given by
+        \begin{align*}
+            \dot{x} &= -a\dot{\theta} \sin{(\theta)}\\
+            \dot{y} &= a\dot{\theta} \cos{(\theta)}\\
+            \dot{z} &= b\dot{\theta}
+        \end{align*}
+        Then the magnitude of the velocity is
+        \begin{align*}
+            v^2 &= \dot{x}^2 + \dot{y}^2 + \dot{z}^2\\
+                &= (-a\dot{\theta} \sin^2{(\theta)}) + (a\dot{\theta} \cos^2{(\theta)}) + (b\dot{\theta})^2\\
+                &= a^2\dot{\theta}^2(\sin^2{(\theta)} + \cos^2{(\theta)}) + b^2\dot{\theta}^2\\
+                &= \dot{\theta}^2(a^2 + b^2)
+        \end{align*}
+        So replacing this value in the equation we have for $v$ (that we got from the
+        energy conservation formula) we have that
+        \begin{align*}
+            v^2 &= 2g(2\pi b - b\theta)\\
+            \dot{\theta}^2(a^2 + b^2) &= 2gb(2\pi - \theta)\\
+            \dot{\theta} \sqrt{a^2 + b^2} &= \sqrt{2gb}\sqrt{2\pi - \theta}\\
+            \frac{d\theta}{dt}\frac{\sqrt{a^2 + b^2}}{\sqrt{2\pi - \theta}} &= \sqrt{2gb}\\
+            \sqrt{a^2 + b^2}\int_0^{2\pi} \frac{d\theta}{\sqrt{2\pi - \theta}} &= \sqrt{2gb}\int_0^t dt'\\
+            \sqrt{a^2 + b^2}\left[-2\sqrt{2\pi-\theta}\right]_0^{2\pi} &= t\sqrt{2gb}\\
+            t &= 2\sqrt{\frac{\pi(a^2 + b^2)}{gb}}
+        \end{align*}
+    \end{proof}
+    \begin{proof}{\textbf{6.18}}
+        Let us first compute the energy conservation equation as follows
+        $$\frac{1}{2}mv^2 + mgz = E$$
+        If we assume that the ball starts from rest when $x = a$ then by applying this
+        initial conditions we have that
+        \begin{align*}
+            E &= \frac{mga^2}{2b}
+        \end{align*}
+        Where we used that $z = x^2/2b$. Then the complete energy conservation equation
+        is given by
+        $$\frac{1}{2}mv^2 + mgz = \frac{mga^2}{2b}$$
+        Now let us calculate the value of $v$ as follows
+        \begin{align*}
+            v^2 &= \dot{z}^2 + \dot{x}^2\\
+                &= \left(\frac{x\dot{x}}{b}\right)^2 + \dot{x}^2\\
+                &= \dot{x}^2\left(\left(\frac{x}{b}\right)^2 + 1\right)
+        \end{align*}
+        Then from the energy conservation equation we have that
+        \begin{align*}
+            \frac{1}{2}\dot{x}^2\left(\left(\frac{x}{b}\right)^2 + 1\right) + \frac{gx^2}{2b} &= \frac{ga^2}{2b}\\
+            \frac{1}{2}\dot{x}^2\left(\left(\frac{x}{b}\right)^2 + 1 \right) &= \frac{ga^2}{2b} - \frac{gx^2}{2b}\\
+            \dot{x}^2\left(\left(\frac{x}{b}\right)^2 + 1 \right) &= \frac{g}{b}(a^2-x^2)\\
+            \dot{x}^2 &= \frac{g}{b}\frac{(a^2-x^2)}{\left(\frac{x}{b}\right)^2 + 1}\\
+            \dot{x}^2 &= \frac{g}{b}\frac{b^2(a^2-x^2)}{x^2 + b^2}\\
+            \dot{x} &= \sqrt{bg}\sqrt{\frac{a^2-x^2}{x^2 + b^2}}\\
+            \int_0^a \frac{dx}{\sqrt{\frac{a^2-x^2}{x^2 + b^2}}} &= \sqrt{bg}\int_0^{\tau/4} dt\\
+            \tau &= \frac{4}{\sqrt{bg}} \int_0^a \sqrt{\frac{x^2+b^2}{a^2 - x^2}}dx
+        \end{align*}
+        Now let us do the replacement $x = a \sin \psi$ then
+        \begin{align*}
+            \tau &= \frac{4}{\sqrt{bg}} \int_0^{\pi/2} \sqrt{\frac{a^2\sin^2\psi+b^2}{a^2 - a^2\sin^2\psi}}a\cos\psi d\psi\\
+                 &= \frac{4}{\sqrt{bg}} \int_0^{\pi/2} \sqrt{\frac{
+                    b^2(\frac{a^2}{b^2}\sin^2\psi+1)}{a^2(1 - \sin^2\psi)}}a\cos\psi d\psi\\
+                &= 4\sqrt{\frac{b}{g}} \int_0^{\pi/2} \sqrt{\frac{
+                    (\frac{a^2}{b^2}\sin^2\psi+1)}{a^2 \cos^2\psi}}a\cos\psi d\psi\\
+                &= 4\sqrt{\frac{b}{g}} \int_0^{\pi/2} \sqrt{\frac{a^2}{b^2}\sin^2\psi+1}~ d\psi
+        \end{align*}
+        When the ratio $a/b$ is small the integrand can be approximated by its taylor
+        series as
+        \begin{align*}
+            \sqrt{\frac{a^2}{b^2}\sin^2\psi+1} &\approx 1 + \frac{a^2}{b^2}\frac{\sin^2\psi}{2} - O(\frac{a^4}{b^4}) 
+        \end{align*}
+        Then our approximated integral with two terms becomes
+        \begin{align*}
+            \tau &= 4\sqrt{\frac{b}{g}} \int_0^{\pi/2} 1 + \frac{a^2}{b^2}\frac{\sin^2\psi}{2} ~d\psi\\
+                &= 4\sqrt{\frac{b}{g}} \left[\frac{\pi}{2} + \left[\frac{a^2}{2b^2}\frac{1}{2}(\psi - \sin\psi \cos \psi)\right]_0^{\pi/2}\right]\\
+                &= 4\sqrt{\frac{b}{g}} \left[\frac{\pi}{2} + \frac{a^2}{2b^2}\frac{\pi}{4}\right]\\
+                &= 2\pi\sqrt{\frac{b}{g}} \left[1 + \frac{a^2}{4b^2}\right]
+        \end{align*}
+    \end{proof}
+\cleardoublepage
+    \begin{proof}{\textbf{6.19}}
+        From the equations we have for the coordinates of the particle we can compute $v$
+        as follows
+        \begin{align*}
+            v^2 &= \dot{x}^2 + \dot{z}^2\\
+                &= c^2\dot{\theta}^2(1 + \cos\theta)^2 + c^2\dot{\theta}^2\sin^2\theta\\
+                &= c^2\dot{\theta}^2(1 + 2\cos\theta + \cos^2\theta + \sin^2\theta)\\
+                &= 2c^2\dot{\theta}^2(1 + \cos\theta)
+        \end{align*}
+        Now from the energy conservation equation, we have to do the corresponding
+        variable replacements
+        \begin{align*}
+            \frac{1}{2}mv^2 + mgz &= E\\
+            \frac{1}{2}m(2c^2\dot{\theta}^2(1 + \cos\theta)) + mgc(1-\cos\theta) &= E\\
+            mc^2(\dot{\theta}^2(1 + \cos\theta) + \frac{g}{c}(1-\cos\theta)) &= E\\
+            \dot{\theta}^2(1 + \cos\theta) + \frac{g}{c}(1-\cos\theta) &= \frac{E}{mc^2} = \text{constant}
+        \end{align*}
+        Therefore we have the equation we wanted using the fact that the total energy
+        $E$ is constant and $m$ and $c$ are positive constants.
+
+        If we define $u = \sin{\frac{\theta}{2}}$ then we have that
+        \begin{align*}
+            \dot{u}^2 &= \frac{\dot{\theta}^2}{4}\cos^2{\frac{\theta}{2}}\\
+            8\dot{u}^2 &= 2\dot{\theta}^2\cos^2{\frac{\theta}{2}}
+        \end{align*}
+        Now from the energy conservation equation we want to express both terms as a
+        function of $u$ then
+        \begin{equation*}
+            \begin{split}
+                1- \cos\theta &= 2\sin^2\frac{\theta}{2}\\
+                              &= 2u^2
+            \end{split}
+            \quad\quad\quad
+            \begin{split}
+                \dot{\theta}^2(1 + \cos\theta) &= 2\dot{\theta}^2\cos^2\frac{\theta}{2}\\
+                    &= 8\dot{u}^2 
+            \end{split}
+        \end{equation*}
+        Then our energy conservation equation becomes
+        $$8\dot{u}^2 + \frac{2g}{c}u^2 = \text{constant}$$
+        Now we compute one more derivative of this expression and we have that
+        \begin{align*}
+            8(2\dot{u}\ddot{u}) + \frac{2g}{c}(2u\dot{u}) &= 0\\
+            16\dot{u}(\ddot{u} + \frac{g}{4c}u) &= 0\\
+            \ddot{u} + \frac{g}{4c}u &= 0
+        \end{align*}
+        
+        The equation in terms of $u$ has the form of a Simple Harmonic Motion so we can
+        calculate the period $T$ of this motion as follows
+        $$T = 2\pi \sqrt{\frac{4c}{g}} = 4\pi \sqrt{\frac{c}{g}}$$
+    \end{proof}
+    \begin{proof}{\textbf{6.22}}
+        Given that the polished surface in hemisphere shape generates a reactive force
+        perpendicular to the velocity $v$ then it does no work and we can use the
+        conventional energy conservation equation as follows
+        \begin{align*}
+            \frac{1}{2}mv^2 + mgz = E
+        \end{align*}
+        Let us define now $\theta$ as the angle between the perpendicular line that
+        passes through the center of the hemisphere O and the
+        line that passes through the center O and follows Vita along her slide down
+        (point P).
+        Then the height $z$ at which Vita is going to be at any time is
+        given by $z = a\cos\theta$ where $a$ is the radius of the hemisphere.
+        So the energy equation becomes
+        $$\frac{1}{2}mv^2 + mga\cos\theta = E$$
+        And by filling the initial conditions $v=0$ and $\theta=0$ we have that
+        $$E = mga \quad\quad\text{then}\quad\quad \frac{1}{2}mv^2 + mga\cos\theta = mga$$
+        So the velocity is given by
+        $$v^2 = 2ga(1 - \cos\theta)$$
+        
+        Now let us calculate the reaction of the surface using the Second Law as follows
+        \begin{align*}
+            mg\cos\theta - N &= m\frac{v^2}{a}\\
+            N &= m(g\cos\theta - \frac{v^2}{a})\\
+            N &= m(g\cos\theta - \frac{2ga(1 - \cos\theta)}{a})\\ 
+            N &= mg(\cos\theta - 2(1 - \cos\theta))\\
+            N &= mg(3\cos\theta - 2)
+        \end{align*}
+        Where we used that $mg\cos\theta$ is the component of the weight perpendicular
+        to the velocity and in the direction of $N$ and $\frac{v^2}{a}$ is the
+        acceleration.
+        When $N=0$ this implies that Vita won't be sliding anymore and would be falling
+        so at this point she starts to fall from the hemisphere, then
+        \begin{align*}
+            0 &= 3\cos\theta - 2\\
+            \theta &= \cos^{-1} \frac{2}{3}
+        \end{align*}
+        And this is going to be the angle formed between an horizontal line (x-axis)
+        passing through P and and the velocity vector. At this point the motion is
+        the same as an object thrown from a cliff with a specific angle and initial
+        velocity, let us define the z-axis with a positive direction downward and the
+        x-axis with a positive direction to the right. The initial velocity is therefore
+        given by
+        \begin{align*}
+            v &= \sqrt{2ga(1 - \cos\theta)}\\
+                &= \sqrt{2ga(1 - \frac{2}{3})}\\
+                &= \sqrt{\frac{2}{3}ga} = 16.16 m/s
+        \end{align*} 
+        And the $z$ equation is given by
+        \begin{align*}
+            z &= 0 + v_{0z}t + \frac{1}{2}gt^2\\
+            a\cos\theta &= vt\sin\theta + \frac{1}{2}gt^2\\
+            0 &= \frac{1}{2}gt^2 + vt\sin\theta - a\cos\theta
+        \end{align*}
+        Plugging the values $g=9.8 m/s^2$, $a=40m$, $v=16.16m/s$ and the value we got for
+        $\theta = \cos^{-1}\frac{2}{3}$ we have that $t_1 = -2.41$ and $t_2 = 2.25$ where
+        we keep $t = 2.25 s$ since the other value doesn't make sense physically.
+        Finally the distance where Vita is going to land can be calculated as
+        \begin{align*}
+            x &= v_{0x}t\\
+              &= vt\cos\theta 
+        \end{align*}
+        Where plugging the values we have we get that $x= 24.24m$
+    \end{proof}
+\cleardoublepage
+    \begin{proof}{\textbf{6.23}}
+        When the string hits the peg the movement is transformed into a pendulum motion
+        of a string of length $a$, and at some point of the movement the ball will stop
+        feeling the tension of the string. At this moment the string will have an angle
+        $\beta$ with the vertical line as shown
+        \includegraphics[width=\textwidth]{"6.23_graph.jpg"}
+        Then the Second Law equation of motion for the centripetal force is given by
+        \begin{align*}
+            mg\cos\beta &= \frac{mu^2}{a}\\ 
+            u^2 &= ag\cos\beta
+        \end{align*}
+        So at this point the movement is a projectile movement with a specific initial
+        velocity $u$ and angle $\beta$ and the trajectory of the ball is given by
+        \begin{align*}
+            z &= \tan{\beta}x - \frac{g}{2u^2\cos^2\beta}x^2\\
+              &= \tan{\beta}x - \frac{1}{2a\cos^3\beta}x^2
+        \end{align*}
+        Where we replaced the value we have for $u$. From here we want that when
+        $x = a \sin\beta$ then $z = -a\cos\beta$ so the ball hits the peg so by
+        replacing the values we have that
+        \begin{align*}
+            -a\cos\beta &= a\frac{\sin^2\beta}{\cos\beta} - \frac{a\sin^2{\beta}}{2\cos^3\beta}\\
+            -\cos^2\beta &= \sin^2\beta - \frac{\sin^2{\beta}}{2\cos^2\beta}\\
+            0 &= 1 - \frac{\tan^2{\beta}}{2}\\
+            \tan{\beta} &= 2\\
+            \beta &= \tan^{-1}{\sqrt{2}}
+        \end{align*}
+        Then from the velocity formula we have that
+        $$u^2 = ag\cos{(\tan{\sqrt{2}})} = \frac{ag}{\sqrt{3}}$$
+        
+        Now since we know that the energy is conserved in the system given that the
+        string is inextensible and does no work we can compute the angle $\alpha$ by
+        the energy conservation equation where we know that $E = 2amg(1-\cos\alpha)$
+        at the begining of the movement because the movement starts from rest and 
+        we consider that the highest the ball could be is $2a$ (assuming the $z$-axis
+        has its positive direction upwards) then
+        \begin{align*}
+            g2a(1-\cos\alpha) &= \frac{1}{2}v^2 + gz\\
+            g2a(1-\cos\alpha) &= \frac{1}{2}\frac{ag}{\sqrt{3}} + ga(1 + \cos\beta)\\
+            2(1-\cos\alpha) &= \frac{1}{2}\frac{1}{\sqrt{3}} + 1 + \frac{1}{\sqrt{3}}\\
+            1-\cos\alpha &= \frac{1}{2} + \frac{1}{\sqrt{3}}\frac{3}{4}\\
+            \cos\alpha &= 1 - \frac{1}{2} - \frac{\sqrt{3}}{4}\\
+            \alpha &= \cos^{-1}(1 - \frac{2 + \sqrt{3}}{4}) = 86,16^{\circ}\\
+        \end{align*} 
+    \end{proof}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
