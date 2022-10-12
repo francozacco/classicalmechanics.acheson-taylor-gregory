@@ -2,6 +2,6 @@
 *.fdb_latexmk
 *.fls
 *.log
-*.pdf
+# *.pdf
 *.synctex.gz
 *.thm
