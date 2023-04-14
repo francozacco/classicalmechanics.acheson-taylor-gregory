@@ -225,6 +225,142 @@
         we get a closed curve that encircles the equilibrium point (1,1) as
         we wanted. 
     \end{proof}
+\cleardoublepage
+    \begin{proof}{\textbf{8.11}}
+        Let our system be
+        \begin{align*}
+            \dot{x} &= x - y - (x^2 + 4y^2)x\\
+            \dot{y} &= x + y - (x^2 + 4y^2)y
+        \end{align*}
+        We want to show there is a limiting cycle lying in the annulus
+        $1/2 < r < 1$.
+        
+        To find the stable points of the system we need to find the solutions to
+        the following equations
+        \begin{align*}
+            0 &= x - y - (x^2 + 4y^2)x\\
+            0 &= x + y - (x^2 + 4y^2)y
+        \end{align*}
+        By multiplying the first equation by $y$ and the second one by $x$ we
+        get that
+        \begin{align*}
+            0 &= xy - y^2 - (x^2 + 4y^2)xy\\
+            0 &= x^2 + xy - (x^2 + 4y^2)xy
+        \end{align*}
+        And subtracting the first equation from the second one we get that
+        \begin{align*}
+            x^2+y^2 = 0
+        \end{align*}
+        Therefore the only equilibrium point happens at the origin i.e. when
+        $x=y=0$ so if a periodic solution exists it must enclose it.
+
+        Let us express the system in polar coordinates as follows
+        \begin{align*}
+            \dot{r} &= \frac{x(x-y-(x^2 +4y^2)x) + y(x+y-(x^2+4y^2)y)}{r}\\
+                &= \frac{x^2-xy-(x^2 +4y^2)x^2 + yx+y^2-(x^2+4y^2)y^2}{r}\\
+                &= \frac{x^2(1-(x^2 +4y^2) + y^2(1-(x^2+4y^2))}{r}\\
+                &= \frac{(1-(x^2 +4y^2))(x^2 + y^2)}{r}\\
+                &= (1-(x^2 +4y^2))r\\
+                &= r(1 - r^2(\cos^2\theta + 4\sin^2\theta))\\
+                &= r(1 - r^2(1 + 3\sin^2\theta))
+        \end{align*}
+        \begin{align*}
+            \dot{\theta} &= \frac{x(x+y-(x^2 +4y^2)y) - y(x-y-(x^2+4y^2)x)}{r^2}\\
+            \dot{\theta} &= \frac{x^2+xy-(x^2 +4y^2)xy - yx+y^2+(x^2+4y^2)xy}{r^2}\\
+            \dot{\theta} &= \frac{x^2 +y^2}{r^2} = 1
+        \end{align*}
+        So let us suppose the domain $\mathcal{D}$ is an annular domain where
+        $1/2<r<1$. If $r = 1$ we have that
+        \begin{align*}
+            \dot{r} = - 3\sin^2\theta \leq 0
+        \end{align*}
+        So except when $\theta \in \{0, \pi, 2\pi, ...\}$ (i.e. points (1,0)
+        and (-1, 0)) we have that $r < 0$,
+        thus a phase point that starts anywhere on the outer boundary $r =1$
+        enters the domain $\mathcal{D}$
+        also if $r = 1/2$ we get that
+        \begin{align*}
+            \dot{r} &= \frac{1}{2}(1 - \frac{1}{4}(1 + 3 \sin^2\theta))\\
+                &= \frac{3}{8}(1 - \sin^2\theta) \geq 0
+        \end{align*}
+        Then in the same way except when $\theta \in \{\frac{\pi}{2}, \frac{3\pi}{4}, ...\}$
+        (i.e. points $(0, \pi/2)$ and $(0, -\pi/2)$) we have that $r > 0$ and so
+        enters the domain $\mathcal{D}$.
+        a phase point that starts anywhere on the inner boundary $r = 1/2$ also
+
+        Since $\mathcal{D}$ is a bounded domain with no equilibrium points
+        within it or on its boundaries, it follows from Poincaré-Bendixson that
+        any such path must either be a simple closed loop or tend to a limit
+        cycle. In any case, the solution is a periodic solution enclosed in the
+        annulus. Furthermore, if the path starts at the boundaries they enter
+        $\mathcal{D}$ and cannot leave it and neither close themselves otherwise
+        they would be leaving $\mathcal{D}$ so they can only have a limit cycle
+        inside $\mathcal{D}$.
+    \end{proof}
+\cleardoublepage
+    \begin{proof}{\textbf{8.13}}
+        Let the following driven non-linear oscillator
+        $$\ddot{x} + \epsilon\dot{x}^3 + x = \cos{pt}$$
+        Using perturbation theory we want to find a two terms approximation
+        solution. Let us now expand $x(t,\epsilon)$ in the perturbation series
+        \begin{align*}
+            x(t,\epsilon) = x_0(t) + \epsilon x_1(t) + \epsilon^2 x_2(t) + ...
+        \end{align*}
+        And let us seek a solution to the driven non-linear oscillator that has
+        period $2\pi/p$. It follows that the expansion functions
+        $x_0(t), x_1(t), x_2(t), ...$ must also have period $2\pi/p$. If we now
+        substitute this series into the ODE we get that
+        \begin{align*}
+            (\ddot{x}_0(t) + \epsilon \ddot{x}_1(t) + \epsilon^2 \ddot{x}_2(t) + ...) +& 
+            \epsilon(\dot{x}_0(t) + \epsilon \dot{x}_1(t) + \epsilon^2 \dot{x}_2(t) + ...)^3 +\\
+            & + (x_0(t) + \epsilon x_1(t) + \epsilon^2 x_2(t) + ...) = \cos pt
+        \end{align*}
+        and equating the coefﬁcients of powers of $\epsilon$, we obtain a
+        succession of ODEs. The ﬁrst two of these are as follows:
+
+        From coefficients of $\epsilon^0$ (zero-order):
+        \begin{align*}
+            \ddot{x}_0 + x_0 = \cos(pt) 
+        \end{align*}
+
+        From coefficients of $\epsilon^1$ (first-order):
+        \begin{align*}
+            \ddot{x}_1 + \dot{x}_0^3 + x_1 = 0 
+        \end{align*}
+
+        The solution to the zero-order equation is given by
+        \begin{align*}
+            x_0(t) = A_0\sin(t) + B_0\cos(t) - \frac{1}{p^2 -1 }\cos(pt)
+        \end{align*}
+        where $A_0$ and $B_0$ are arbitrary constants. Since $x_0$ is known to
+        have period $2\pi/p$, it follows that $A_0$ and $B_0$ must be zero
+        unless $1/p$ is an integer, we will assume that is not the case. Then
+        the final solution to the zero-order equation is
+        $$x_0(t) = - \frac{1}{p^2 -1 }\cos(pt)$$
+
+        The ﬁrst-order equation can now be written as
+        \begin{align*}
+            \ddot{x}_1 + x_1 &= -\left(\frac{p}{p^2-1}\sin(pt)\right)^3\\
+            \ddot{x}_1 + x_1 &= -\frac{p^3}{4(p^2-1)^3} (3\sin(pt) - \sin(3pt))
+        \end{align*}
+        And the solution to this equation by taking only the terms that have a
+        period of $2\pi/p$ is 
+        \begin{align*}
+            x_1 = \frac{3p^3\sin(pt)}{4(p^2 - 1)^4}  - \frac{p^3\sin(3 p t)}{4(p^2-1)^3(9p^2-1)}
+        \end{align*}
+
+        Finally, when $\epsilon$ is small, the driven response approximated by
+        two terms is given by
+        \begin{align*}
+            x(t,\epsilon) = - \frac{1}{p^2 -1 }\cos(pt) +
+            \epsilon\left(\frac{3p^3\sin(pt)}{4(p^2 - 1)^4} -
+            \frac{p^3\sin(3 p t)}{4(p^2-1)^3(9p^2-1)}\right) + O(\epsilon^2)
+        \end{align*}
+        The restrictions on the value of $p$ are that $1/p$ cannot be an integer
+        as we said and $p \neq 1$ and $p \neq 1/3$ otherwise this solution is
+        invalid. 
+    \end{proof}
+
 \end{document}
 
 
