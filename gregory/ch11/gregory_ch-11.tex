@@ -500,14 +500,80 @@
     impossible and the ball would slide, and if $\mu \geq \frac{2}{7}\tan\alpha$
     then the ball would roll.
 
-    Finally if we replace the value of $\mu$ in the last form of the rolling
+    Finally, if we replace the value of $\mu$ in the last form of the rolling
     equation we get that
     \begin{align*}        
         \frac{dv}{dt} &= \frac{5}{2}g\bigg(\frac{2}{7}\tan\alpha\bigg)\cos\alpha\\
         \frac{dv}{dt} &= \frac{5}{7}g\sin\alpha
     \end{align*}
 \end{proof}
-
+\cleardoublepage
+\begin{proof}{\textbf{11.14}}
+    Let's consider the system at two times $t=0$ and $t=t$ as shown below 
+    \begin{center}
+        \includegraphics[scale=0.5]{ch11-14.png}
+    \end{center}
+    The planar equations applied to the yo-yo give us
+    \begin{align}
+        I\dot{\omega} &= Tr\\
+        -m\dot{v} &= T - mg
+    \end{align}
+    Where we are considering the clockwise direction as the positive rotation
+    direction and $r$ as the radius of the yo-yo.
+    Also, knowing that $I = 1/2 m r^2$ and replacing the value of $T$ we got
+    from (1) into (2) we get that
+    \begin{align}
+        \frac{1}{2}r\dot{\omega} +\dot{v} &= g
+    \end{align}
+    On the other hand, from the no-slipping relation, we know that the velocity
+    of the yo-yo where it touches the string is the same as the velocity of the
+    string, hence $\dot{Z} =r\omega - v$ which implies that
+    \begin{align*}
+        \ddot{Z} = r\dot\omega - \dot{v}
+    \end{align*}
+    Then by replacing $r\dot\omega = \ddot{Z} + \dot v$ into (3) we get that
+    \begin{align*}
+        \frac{1}{2}(\ddot{Z} + \dot v) + \dot{v}&= g\\
+        \frac{3}{2}\dot v + \frac{1}{2}\ddot{Z}&= g\\
+        \dot v &= \frac{2}{3}g -\frac{1}{3}\ddot{Z}
+    \end{align*}
+    Finally, if the support moves upward with acceleration $\ddot Z = 2g$ then
+    $\dot v = 0$ which implies that the yo-yo moves with a constant velocity.
+\end{proof}
+\begin{proof}{\textbf{11.18}}
+    Let us consider the following unsymmetrical triangular table
+    \begin{center}
+        \includegraphics[scale=0.45]{ch11-18.png}
+    \end{center}
+    We now apply the equilibrium conditions. The condition $\bm{F} =0$ give us
+    \begin{align*}
+        N_a\bm{k} + N_b\bm{k} + N_c\bm{k} -mg\bm{k} &= 0
+    \end{align*}
+    Let us assume the vertex $C$ is at the origin of the $xy$ plane, then the
+    position vector of the center of mass is given by
+    $\bm{CG} = (\bm{CA} + \bm{CB})/3$.
+    If we take moments about $C$, the normal reaction $N_c\bm{k}$ makes no
+    contribution and the condition $\bm{K_A} = 0$ give us
+    \begin{align*}
+        \bm{CA}\times N_a\bm{k} + \bm{CB}\times N_b\bm{k}
+        -\bm{CG}\times mg\bm{k} &= 0\\
+        N_a(\bm{CA}\times \bm{k}) + N_b(\bm{CB}\times \bm{k})
+        -\frac{mg}{3}(\bm{CB}\times \bm{k}) -\frac{mg}{3}(\bm{CA}\times \bm{k}) &= 0\\
+        \bigg(N_a-\frac{mg}{3}\bigg)(\bm{CA}\times \bm{k}) + 
+        \bigg(N_b-\frac{mg}{3}\bigg)(\bm{CB}\times \bm{k})&= 0\\
+        \bigg(\bigg(N_a-\frac{mg}{3}\bigg)\bm{CA} + 
+        \bigg(N_b-\frac{mg}{3}\bigg)\bm{CB}\bigg)\times \bm{k}&= 0
+    \end{align*}
+    The last equation implies that 
+    \begin{align*}
+        \bigg(N_a-\frac{mg}{3}\bigg)\bm{CA} + 
+        \bigg(N_b-\frac{mg}{3}\bigg)\bm{CB}&= 0
+    \end{align*}
+    Hence it must happen that both $N_a-\frac{mg}{3} = 0$ and
+    $N_b-\frac{mg}{3} = 0$ so we get that $N_a = N_b = mg/3$ and from 
+    the equation for the first condition we get that also $N_c = mg/3$.
+    Therefore each leg bears one-third of the table's weight.
+\end{proof}
 
 \end{document}
 
