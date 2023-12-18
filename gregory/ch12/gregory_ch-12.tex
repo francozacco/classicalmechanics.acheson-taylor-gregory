@@ -531,12 +531,334 @@
         E &= m\bigg[\frac{1}{6}\dot{Z}^2
         + \frac{1}{3}gZ\bigg] = m \bigg[\frac{\dot{Z}^2 + 2gZ}{6}\bigg]
     \end{align*}
-
-
-
-
 \end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{12.12}}
+    The system described looks like the following
+    \begin{center}
+        \includegraphics[scale=0.45]{ch12-12.png}
+    \end{center}
+    Where our generalized coordinate is $\theta$.
+    At some time $t$ the kinetic energy is given by
+    \begin{align*}
+        T &= \frac{1}{2}m( \bm{(a - Z)\dot{\theta}} + \bm{\dot{Z}})^2\\
+        T &= \frac{1}{2}m[(a - Z)^2\dot{\theta}^2 + \dot{Z}^2]
+    \end{align*}
+    and the potential energy with respect to the ring is
+    \begin{align*}
+        V &= -mg(a - Z)\cos\theta
+    \end{align*}
+    then the Lagrangian is given by
+    \begin{align*}
+        L = \frac{1}{2}m((a - Z)^2\dot{\theta}^2
+        + \dot{Z}^2)
+        + mg(a - Z)\cos\theta
+    \end{align*}
+    The Lagrange equation is
+    \begin{align*}
+        \frac{d}{dt}\bigg[\frac{\partial T}{\partial \dot{\theta}}\bigg] - 
+        \frac{\partial T}{\partial \theta}
+        &= -\frac{\partial V}{\partial \theta}\\
+        \frac{d}{dt}\bigg[
+            m(a - Z)^2\dot{\theta}
+        \bigg] - 0
+        &= - mg(a-Z)\sin\theta\\
+        (a - Z)^2\ddot{\theta}
+        + 2\dot{Z}(Z - a)\dot{\theta}
+        &= - g(a-Z)\sin\theta\\
+        (a - Z)\ddot{\theta}
+        - 2\dot{Z}\dot{\theta}
+        &= - g\sin\theta
+    \end{align*}
+    On the other hand $E = T + V$ is
+    \begin{align*}
+        E = \frac{1}{2}m((a - Z)^2\dot{\theta}^2
+        + \dot{Z}^2)
+        - mg(a - Z)\cos\theta
+    \end{align*}
+    Finally, using the Lagrangian and replacing $E$ at the end we compute
+    the energy function $h$ as follows
+    \begin{align*}
+        h &= m(a - Z)^2\dot{\theta}^2
+        - \frac{1}{2}m((a - Z)^2\dot{\theta}^2
+        + \dot{Z}^2)
+        - mg(a - Z)\cos\theta\\
+        h &= \frac{1}{2}m((a - Z)^2\dot{\theta}^2
+        - \dot{Z}^2)
+        - mg(a - Z)\cos\theta\\
+        h &= E - m\dot{Z}^2
+    \end{align*}
+    Neither $h$ nor $E$ are conserved because $L$ depends on $Z$ and $Z$
+    depends on time.
+\end{proof}
+\begin{proof}{\textbf{12.14}}
+    We want to show that the force $\bm{F} = f(t)\grad{W(\bm{r})}$ can be
+    represented by the time-dependent potential $U = -f(t)W(\bm{r})$.
+    
+    Let $\bm{r} = (q_1, ..., q_n)$ be the vector of generalized coordinates
+    so if each force coordinate can be written as follows
+    \begin{align*}
+        F_j = \frac{d}{dt}\bigg(\frac{\partial U}{\partial \dot{q_j}}\bigg)
+        - \bigg(\frac{\partial U}{\partial q_j}\bigg)
+    \end{align*}
+    then $\bm{F}$ can be represented by the time-dependent potential $U$.
+    For the $j$-th generalized coordinate, we have that
+    \begin{align*}
+        F_j &= 0 - \bigg(-f(t)\frac{\partial W(\bm{r})}{\partial q_j}\bigg)\\
+        F_j &= f(t)\frac{\partial W(\bm{r})}{\partial q_j}
+    \end{align*}
+    Therefore $\bm{F}$ is given by
+    \begin{align*}
+        \bm{F} &= f(t)\bigg(\frac{\partial W(\bm{r})}{\partial q_1}, ...,
+        \frac{\partial W(\bm{r})}{\partial q_n}\bigg) = f(t)\grad{W(\bm{r})}
+    \end{align*}
+    which implies that $\bm{F}$ can be represented by the time-dependent
+    potential $U$.
 
+    Finally, if $\bm{F} = f(t)\bm{i}$ we have that $U$ must be
+    $U = -f(t)x\bm{i}$ hence
+    \begin{align*}
+        F_x &= 0 - \bigg(-f(t)\frac{\partial x}{\partial x}\bm{i}\bigg)\\
+        F_x &= f(t)\bm{i}
+    \end{align*}
+    where we assumed that $\bm{F}$ depends on a position vector
+    $\bm{r} = (x\bm{i}, y\bm{j}, z\bm{k})$ where $y=z=0$.
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{12.17}}
+    The system described looks like the following
+    \begin{center}
+        \includegraphics[scale=0.45]{ch12-17.png}
+    \end{center}
+    Where our generalized coordinates are $r$ and $\theta$.
+    The kinetic energy in this case is given by
+    \begin{align*}
+        T &= \frac{1}{2}m(\bm{r\dot{\theta}} + \bm{\dot{r}})^2\\
+        T &= \frac{1}{2}m((r\dot{\theta})^2 + 2r\dot{\theta}\dot{r}\cos(\pi/2) + \dot{r}^2)\\
+        T &= \frac{1}{2}m((r\dot{\theta})^2 + \dot{r}^2)
+    \end{align*}
+    and for the potential energy, we have that 
+    \begin{align*}
+        V &= -G\frac{mM}{r}
+    \end{align*}
+    Hence the Lagrange equations are
+    \begin{align*}
+        \frac{d}{dt}\bigg[\frac{\partial T}{\partial \dot{\theta}}\bigg] - 
+        \frac{\partial T}{\partial \theta}
+        &= -\frac{\partial V}{\partial \theta}\\
+        \frac{d}{dt}(mr^2\dot{\theta}) - 0 &= 0\\
+        m2r\dot{r}\dot{\theta} + mr^2\ddot{\theta} &= 0\\
+        2r\dot{r}\dot{\theta} + r^2\ddot{\theta} &= 0
+    \end{align*}
+    And for $r$ we have that
+    \begin{align*}
+        \frac{d}{dt}\bigg[\frac{\partial T}{\partial \dot{r}}\bigg] - 
+        \frac{\partial T}{\partial r}
+        &= -\frac{\partial V}{\partial r}\\
+        m\ddot{r} - mr\dot\theta^2 &= -G\frac{mM}{r^2}\\
+        \ddot{r} -r\dot\theta^2 &= -G\frac{M}{r^2}
+    \end{align*}
+    On the other hand, the Lagrangian is given by
+    \begin{align*}
+        L = \frac{1}{2}m(r\dot{\theta})^2 + G\frac{mM}{r}
+    \end{align*}
+    Where $\theta$ does not appear, hence $\theta$ is a cyclic coordinate.
+
+    Finally, the generalized momentum $p_\theta$ is
+    \begin{align*}
+        p_\theta = \frac{\partial L}{\partial \dot\theta} = mr^2\dot\theta = mrv
+    \end{align*}
+    where $v = r\dot\theta$ is the tangential velocity and $p_\theta$ is
+    the component of the angular momentum about $O$ perpendicular to the plane
+    of motion.
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{12.18}}
+    The system in this case looks like the following
+    \begin{center}
+        \includegraphics[scale=0.4]{ch12-18.png}
+    \end{center}
+    Where our generalized coordinates are $r$ and $\phi$.
+    The kinetic energy in this case is given by
+    \begin{align*}
+        T &= \frac{1}{2}m(\bm{r}\textbf{sin}\bm{\alpha\dot{\phi}}
+        + \bm{\dot{r}})^2\\
+        T &= \frac{1}{2}m((r\sin\alpha\dot{\phi})^2 + \dot{r}^2)
+    \end{align*}
+    and for the potential energy, we have that 
+    \begin{align*}
+        V &= mg(r\cos\alpha)
+    \end{align*}
+    Hence the Lagrange equations are
+    \begin{align*}
+        \frac{d}{dt}\bigg[\frac{\partial T}{\partial \dot{\phi}}\bigg] - 
+        \frac{\partial T}{\partial \phi}
+        &= -\frac{\partial V}{\partial \phi}\\
+        \frac{d}{dt}(m(r\sin\alpha)^2\dot{\phi}) - 0 &= 0\\
+        m2r\sin^2\alpha\dot{r}\dot{\phi} + m(r\sin\alpha)^2\ddot{\phi} &= 0\\
+        2\sin\alpha\dot{r}\dot{\phi} + r\sin\alpha\ddot{\phi} &= 0
+    \end{align*}
+    And for $r$ we have that
+    \begin{align*}
+        \frac{d}{dt}\bigg[\frac{\partial T}{\partial \dot{r}}\bigg] - 
+        \frac{\partial T}{\partial r}
+        &= -\frac{\partial V}{\partial r}\\
+        \frac{d}{dt}(m\dot{r}) - m(\sin\alpha\dot{\phi})^2r &= -mg\cos\alpha \\
+        \ddot{r} - (\sin\alpha\dot{\phi})^2r &= -g\cos\alpha \\
+    \end{align*}
+    On the other hand, the Lagrangian is given by
+    \begin{align*}
+        L = \frac{1}{2}m((r\sin\alpha\dot{\phi})^2 + \dot{r}^2) - mg(r\cos\alpha)
+    \end{align*}
+    Where $\phi$ does not appear, hence $\phi$ is a cyclic coordinate.
+
+    Finally, the generalized momentum $p_\phi$ is
+    \begin{align*}
+        p_\phi = \frac{\partial L}{\partial \dot\phi} = m(r\sin\alpha)^2\dot\phi
+    \end{align*}
+    $p_\phi$ is the component of the angular momentum about $O$ in the $\bm{k}$
+    direction hence perpendicular to the plane of motion.
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{12.20}}
+    \begin{itemize}
+    \item [(i)]
+    The system in this case looks like the following
+    \begin{center}
+        \includegraphics[scale=0.4]{ch12-20-i.png}
+    \end{center}
+    From Chapter 3 we know that the gravitational force exerted to a particle
+    from a sphere is given by
+    \begin{align*}
+        F = -G\frac{mM}{r^2}\bm{r}
+    \end{align*}
+    Where $M$ is the mass of the sphere and $m$ is the mass of the particle.
+    So the Potential Energy is given by 
+    \begin{align*}
+        V &= G\frac{mM}{r}
+    \end{align*}
+    From Theorem 12.2 given that the system (the particle) can be
+    rotated about any of the following axes $\{O,\bm{k}\}$, $\{O,\bm{i}\}$ or
+    $\{O,\bm{j}\}$ and $V$ is unchanged since it does not depend on any
+    of the spherical coordinates, we get that the full angular momentum
+    $\bm{L}$ must be conserved.
+
+    \item [(ii)] In this case let us examine the half x-y plane i.e. the set
+    $\{(x,y,z) : x\geq 0 \text{ and } z=0\}$ since the particle could be
+    anywhere in the space the only movement we can do without affecting $V$
+    is a translation in the $y$ direction hence the conserved quantity is the
+    linear momentum in the $y$ direction $P_y$. 
+    \cleardoublepage
+    \item [(iii)]
+    The system in this case looks like the following
+    \begin{center}
+        \includegraphics[scale=0.4]{ch12-20-iii.png}
+    \end{center}
+    where the particle $P_1$ and $P_2$ are fixed and $P_3$ can move freely in
+    the space.
+    From Theorem 12.2 given that the particle can be rotated about the axis
+    $\{O,\bm{i}\}$ and $V$ is unchanged we get
+    that the conserved quantity is the $i$ component of the angular momentum
+    i.e. $L_x$ is conserved.
+    
+    \item [(iv)]
+    The system in this case looks like the following
+    \begin{center}
+        \includegraphics[scale=0.4]{ch12-20-iv.png}
+    \end{center}
+    where the right cone has its base fixed at the origin and $P$ can move
+    freely. The particle can be rotated about the axis $\{O,\bm{k}\}$
+    independent of the position vector $\bm{r}$ and $V$ is unchanged so we get
+    that the conserved quantity is the $z$ component of the angular momentum
+    i.e. $L_z$ is conserved.
+    \cleardoublepage
+    \item [(v)]
+    Finally, the system in this case looks like the following
+    \begin{center}
+        \includegraphics[scale=0.4]{ch12-20-v.png}
+    \end{center}
+    where the infinite uniform circular cylinder extends in the $z$ direction
+    and $P$, the particle, can move freely in the space.
+    The particle can be rotated about the axis $\{O,\bm{k}\}$
+    and/or translated in the $z$ direction and $V$ would be unchanged
+    so we get that the conserved quantities are the $z$ component of
+    the angular momentum $L_z$ and the $z$ component of the linear momentum
+    $P_z$.
+    \end{itemize}
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{12.21}}
+    Joining the results we got from Theorem 12.1 and 12.2 we see that in our
+    case it must happen that
+    \begin{align*}
+        \frac{\partial \bm{r}_i^\lambda}{\partial \lambda}
+        = c\bm{k} + \bm{k} \times \bm{r}_i^{\lambda}
+    \end{align*}
+    Since it's the combination of two displacements a $c\lambda$ translation
+    in the $\bm{k}$ direction and a rotation of $\lambda$ with respect to the
+    axis $\bm{k}$.
+    When $\lambda = 0$ we have that $\bm{r}_i^\lambda = \bm{r}_i$ hence
+    \begin{align*}
+        \bigg[\frac{\partial \bm{r}_i^\lambda}{\partial \lambda}\bigg]_{\lambda = 0}
+        = c\bm{k} + \bm{k} \times \bm{r}_i
+    \end{align*}  
+    Therefore this implies that the conserved quantity must be $cP_z + L_z$
+    where $P_z$ is the linear momentum in the $\bm{k}$ direction and
+    $L_z$ is the angular momentum about the axis $\{O, \bm{k}\}$.
+\end{proof}
+\cleardoublepage
+\begin{proof}{\textbf{12.22}}
+    The system in this case looks like the following
+    \begin{center}
+        \includegraphics[scale=0.5]{ch12-22.png}
+    \end{center}
+    Where our generalized coordinate is $\theta$.
+    The kinetic energy in this case is given by
+    \begin{align*}
+        T &= \frac{1}{2}m(\bm{a\dot{\theta}} + \bm{\dot Z})^2\\
+        T &= \frac{1}{2}m[(a\dot{\theta})^2
+        + 2a\dot{\theta}\dot{Z}\cos(\pi/2 - \theta) + \dot{Z}^2]\\
+        T &= \frac{1}{2}m[(a\dot{\theta})^2
+        + 2a\dot{\theta}\dot{Z}\sin(\theta) + \dot{Z}^2]
+    \end{align*}
+    And for the potential energy, we have that 
+    \begin{align*}
+        V &= mg(a\cos\theta + Z)
+    \end{align*}
+    The Lagrange equation is then
+    \begin{align*}
+        \frac{d}{dt}\bigg[\frac{\partial T}{\partial \dot{\theta}}\bigg] - 
+        \frac{\partial T}{\partial \theta}
+        &= -\frac{\partial V}{\partial \theta}\\
+        m\frac{d}{dt}\bigg[
+            a^2\dot{\theta}
+        + a\dot{Z}\sin(\theta)
+        \bigg] - ma\dot{\theta}\dot{Z}\cos(\theta)
+        &= mga\sin(\theta)\\      
+        a^2\ddot{\theta} + a\ddot{Z}\sin(\theta) + a\dot{Z}\dot\theta\cos(\theta)
+        - a\dot{\theta}\dot{Z}\cos(\theta)
+        &= ga\sin(\theta)\\
+        a\ddot{\theta} - (g - \ddot{Z})\sin(\theta) &= 0
+    \end{align*}
+    We know that $Z = \epsilon a\cos pt$ hence $\ddot{Z} = -p^2\epsilon a\cos pt$
+    so by replacing this value and setting $\Omega^2 = g/a$, we have that
+    \begin{align*}
+        \ddot{\theta}
+        - \bigg(\frac{g}{a} + \epsilon p^2 \cos pt\bigg)\sin(\theta) &= 0\\
+        \ddot{\theta}
+        - \bigg(\Omega^2 + \epsilon p^2 \cos pt\bigg)\sin(\theta) &= 0
+    \end{align*}
+    Setting a dimensionless time $\tau = pt$ we have that
+    \begin{align*}
+        \frac{d^2\theta}{d\tau^2}
+        - \bigg(\frac{\Omega^2}{p^2} + \epsilon \cos \tau\bigg)\sin(\theta) &= 0
+    \end{align*}
+    Now we solve the equation numerically to obtain $\theta(\tau)$ for
+    different parameters as follows
+    \begin{center}
+        \includegraphics[scale=0.43]{ch12-22-1.png}
+    \end{center}
+\end{proof}
 \end{document}
 
 
