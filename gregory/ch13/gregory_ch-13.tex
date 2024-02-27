@@ -620,10 +620,94 @@
     Where the red line is the path that starts from the black dot
     $Q = (0, -1, 1)$ and ends on $P = (0, 1, 1)$.
 \end{proof}
-
+\cleardoublepage
+\begin{proof}{\textbf{13.15}}
+    We want to solve the problem of ﬁnding the path of quickest descent for
+    a skier from the point $P(x_0, y_0, z_0)$ to the point $Q(x_1, y_1, z_1)$
+    on a snow-covered mountain whose proﬁle is given by $z = G(x, y)$,
+    where $G$ is a known function. We know that Energy is conserved so
+    \begin{align*}
+        \frac{1}{2}m\left(\frac{d\bm{r}}{dt}\right)^2 + mgG(x,y)
+        &= mgG(x_0, y_0)\\
+        \left(\frac{d\bm{r}}{dt}\right)^2
+        &= 2g(G(x_0, y_0) - G(x, y))
+    \end{align*}
+    Where we used that the skier starts from rest i.e. $d\bm{r}_0/dt = 0$.
+    Also, we know that
+    \begin{align*}
+        d\bm{r}^2 &= dx^2 + dy^2 + dz^2\\
+        &= dx^2 + dy^2 + dG(x,y)^2
+    \end{align*}
+    So we can write the conservation of energy equation as
+    \begin{align*}
+        dt^2 &= \frac{dx^2 + dy^2 + dG(x,y)^2}{2g(G(x_0, y_0) - G(x, y))}\\
+        \int_0^T dt &= \int_{P(x_0, y_0, z_0)}^{Q(x_1, y_1, z_1)}
+        \sqrt{\frac{dx^2 + dy^2 + dG(x,y)^2}{2g(G(x_0, y_0) - G(x, y))}}\\
+        T &= \frac{1}{\sqrt{2g}} \int_{x_0}^{y_0}
+        \sqrt{\frac{1 + (dy/dx)^2 + (dG(x,y)/dx)^2}{G(x_0, y_0) - G(x, y)}}~dx\\
+        T &= \frac{1}{\sqrt{2g}} \int_{x_0}^{y_0}
+        \sqrt{\frac{1 + \dot y^2 + (G_x(x,y) + G_y(x,y)\dot y)^2}
+        {G(x_0, y_0) - G(x, y)}}~dx
+    \end{align*}
+    Let us take now $G(x,y) = x^2$ and let us solve the Euler-Lagrange equation
+    for the following function
+    $$F(x,y, \dot y) = \sqrt{\frac{1 + \dot y^2 + 4x^2}
+    {x_0^2 - x^2}}$$
+    Hence
+    \begin{align*}
+        \frac{d}{dx}\left(\frac{\partial F}{\partial \dot y}\right)
+        - \frac{\partial F}{\partial y} &= 0\\
+        \frac{d}{dx}\left(\frac{\dot y}{\sqrt{(x_0^2 - x^2)(1 + \dot y^2 + 4x^2)}}
+        \right)
+        - 0 &= 0\\
+        \frac{\ddot y}{\sqrt{(x_0^2 - x^2)(1 + \dot y^2 + 4x^2)}} -
+        \frac{\dot y((x_0^2 - x^2)(2\dot y\ddot y + 8x)-2x(1 + \dot y^2 + 4x^2))}
+        {2((x_0^2 - x^2)(1 + \dot y^2 + 4x^2))^{3/2}} &= 0\\
+    \end{align*}
+    Then
+    \begin{align*}
+        \frac{\ddot y}{\sqrt{(x_0^2 - x^2)(1 + \dot y^2 + 4x^2)}} &= 
+        \frac{\dot y((x_0^2 - x^2)(2\dot y\ddot y + 8x)-2x(1 + \dot y^2 + 4x^2))}
+        {2((x_0^2 - x^2)(1 + \dot y^2 + 4x^2))^{3/2}}
+        \\
+        \ddot y &= 
+        \frac{\dot y(2x_0^2\dot y\ddot y + 8x_0^2x -2x^2\dot y\ddot y - 8x^3
+        -(2x + 2x\dot y^2 + 8x^3))}
+        {2((x_0^2 - x^2)(1 + \dot y^2 + 4x^2))}
+        \\ 
+        (x_0^2 - x^2)(1 + \dot y^2 + 4x^2)\ddot y &= 
+        x_0^2\dot y^2\ddot y + 4x_0^2x\dot y - x^2\dot y^2\ddot y - 4x^3\dot y
+        -x\dot y - x\dot y^3 - 4x^3\dot y
+        \\
+        (x_0^2 - x^2)(1 + \dot y^2 + 4x^2)\ddot y &= 
+        x\dot y(4x_0^2 - 8x^2 - 1 - \dot y^2) +
+        \ddot y\dot y^2(x_0^2 - x^2)
+        \\
+        \ddot y &= 
+        \frac{x\dot y(4x_0^2 - 8x^2 - 1 - \dot y^2)}
+        {(x_0^2 - x^2)(1 + 4x^2)}
+    \end{align*}
+    Now naming $\dot y = u$ we have that
+    \begin{align*}
+        \dot u &= \frac{xu(4x_0^2 - 8x^2 - 1 - u^2)}{(x_0^2 - x^2)(1 + 4x^2)}
+    \end{align*}
+    Finally, we can solve the system of differential equations numerically
+    from $P = (2, 0, 4)$ to $Q=(0, 1, 0)$ where $y'(0) = \lambda$ and $\lambda$
+    must be determined so the path passes through $P$. We determine $\lambda$
+    to be close to $-0.31$ as the following plot indicates
+    \begin{center}
+        \includegraphics[scale=0.5]{ch13-15.png}
+    \end{center}
+    Finally, we have the 3d plot 
+    \begin{center}
+        \includegraphics[scale=0.5]{ch13-15_2.png}
+    \end{center}
+    Where the red line is the path that starts from the black dot
+    $P = (2, 0, 4)$ and ends on $Q = (0, 1, 0)$.
+\end{proof}
 \end{document}
 
-
+    
 
 
 
